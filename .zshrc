@@ -73,11 +73,13 @@ plugins=(git
          zsh-completions)
 
 
-autoload -U compinit && compinit -u
+autoload -Uz compinit
+compinit
 
 autoload -Uz colors
 colors
 
+eval "$(dircolors -b ~/.dircolors)"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-  export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -101,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 setopt share_history
 setopt hist_ignore_all_dups
 setopt correct
-
+setopt auto_cd
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -113,7 +115,7 @@ setopt correct
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-alias ls="ls -F --color=tty"
+alias ls="ls -F --color"
 alias ll="ls -alF"
 alias cp="cp -i"
 alias mv="mv -i"
