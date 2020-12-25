@@ -21,6 +21,6 @@ sh ./installer.sh ~/.cache/dein
 
 sudo apt install -y tmux
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
 cargo install exa
 sudo apt install -y bat
