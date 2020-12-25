@@ -1,6 +1,13 @@
 # dotfiles
 
+## Installation
 ```bash
-curl -L raw.github.com/Sakurai00/dotfiles/master/link.sh | sh
-curl -L raw.github.com/Sakurai00/dotfiles/master/install.sh | sh
+git clone https://github.com/Sakurai00/dotfiles.git
+./dotfiles/install.sh
+./dotfiles/link.sh
 ```
+
+
+
+## 参考
+https://github.com/topics/dotfiles
