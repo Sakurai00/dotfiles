@@ -12,7 +12,6 @@ sudo apt install -y gdb
 
 # zsh
 sudo apt install -y zsh
-chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 
@@ -28,5 +27,6 @@ sudo apt install -y tmux
 
 # rust & rust tool (exa, bat)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+exec $SHELL -l
 cargo install exa
 sudo apt install -y bat
