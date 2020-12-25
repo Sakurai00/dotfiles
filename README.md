@@ -9,6 +9,9 @@ git clone https://github.com/Sakurai00/dotfiles.git
 ```
 font install
 https://github.com/romkatv/powerlevel10k/blob/master/font.md
+```bash
+chsh -s $(which zsh)
+```
 
 
 ## 参考
