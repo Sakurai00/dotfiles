@@ -2,9 +2,10 @@
 
 ## Installation
 ```bash
+cd ~
 git clone https://github.com/Sakurai00/dotfiles.git
-./dotfiles/install.sh
-./dotfiles/link.sh
+~/dotfiles/install.sh
+~/dotfiles/link.sh
 ```
 
 
