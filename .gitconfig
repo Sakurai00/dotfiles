@@ -1,3 +1,11 @@
 [user]
 	email = K.Sakurai_2000@outlook.com
 	name = sakurai
+[color]
+	ui = true
+[alias]
+	st = status
+[core]
+	autocrlf = false
+[push]
+	default = current
