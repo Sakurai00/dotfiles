@@ -20,15 +20,16 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 
-# powerlevel10k
+
+# powerlevel10k settings
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#eval "$(dircolors -b ~/.dircolors)"
 
 
 export LANG=en_US.UTF-8
+#eval "$(dircolors -b ~/.dircolors)"
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
@@ -47,16 +48,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 alias his="history"
-alias vim="nvim"
 alias relogin="exec $SHELL -l"
+alias vim="nvim"
 alias cat="batcat"
-
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-source "$HOME/.cargo/env"
-
-export PATH=~/.local/bin:$PATH
-export PATH=~/.local/lib:$PATH
