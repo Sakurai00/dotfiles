@@ -27,6 +27,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 #eval "$(dircolors -b ~/.dircolors)"
 
+
 export LANG=en_US.UTF-8
 
 zinit light zsh-users/zsh-autosuggestions
@@ -41,7 +42,7 @@ setopt auto_cd
 
 
 alias ls="exa -F"
-alias ll="ls -alF"
+alias ll="exa -alF"
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
@@ -51,10 +52,11 @@ alias relogin="exec $SHELL -l"
 alias cat="batcat"
 
 
-source ~/.nvm/nvm.sh
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 source "$HOME/.cargo/env"
+
 export PATH=~/.local/bin:$PATH
 export PATH=~/.local/lib:$PATH
