@@ -36,7 +36,16 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light zdharma/history-search-multi-word
 
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*:default' menu select=1
+
+
 setopt share_history
+HISTFILE=~/.zsh-history
+HISTSIZE=100000
+SAVEHIST=1000000
+
+
 setopt hist_ignore_all_dups
 setopt correct
 setopt auto_cd
