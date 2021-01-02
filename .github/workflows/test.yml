@@ -25,7 +25,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: unit-test of ${{matrix.script}}
-        run: {GITHUB_WORKSPACE}/script/installer/${{matrix.script}}
+        working-directory: ./script/installer
+        run: ${{matrix.script}}
 
 
   test:
