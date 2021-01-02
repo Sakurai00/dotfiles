@@ -1,0 +1,42 @@
+name: check
+
+
+on: [ push, pull_request ]
+
+
+jobs:
+
+
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script: [
+          "c-cpp.sh",
+          "git.sh",
+          "nvim.sh",
+          "python.sh",
+          "rust.sh",
+          "tmux.sh",
+          "zsh.sh"
+        ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: unit-test of ${{matrix.script}}
+        working-directory: ./script/installer
+        run: ${{matrix.script}}
+
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install
+        run: make install
+
+      - name: link
+        run: make link
+
