@@ -13,13 +13,13 @@ jobs:
       fail-fast: false
       matrix:
         script: [
-          "c-cpp.sh",
-          "git.sh",
-          "nvim.sh",
-          "python.sh",
-          "rust.sh",
-          "tmux.sh",
-          "zsh.sh"
+          "./c-cpp.sh",
+          "./git.sh",
+          "./nvim.sh",
+          "./python.sh",
+          "./rust.sh",
+          "./tmux.sh",
+          "./zsh.sh"
         ]
     steps:
       - uses: actions/checkout@v2
