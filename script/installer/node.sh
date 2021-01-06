@@ -6,3 +6,5 @@ chmod 755 ~/.nvm/nvm.sh
 . ~/.nvm/nvm.sh
 
 nvm install --lts
+
+sudo apt install -y npm
