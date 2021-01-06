@@ -4,16 +4,18 @@ sudo apt update
 sudo apt upgrade -y
 
 
-./installer/git.sh
+./script/installer/git.sh
 
-./installer/c-cpp.sh
+./script/installer/c-cpp.sh
 
-./installer/python.sh
+./script/installer/python.sh
 
-./installer/zsh.sh
+./script/installer/zsh.sh
 
-./installer/nvim.sh
+./script/installer/nvim.sh
 
-./installer/tmux.sh
+./script/installer/tmux.sh
 
-./installer/rust.sh
+./script/installer/rust.sh
+
+./script/installer/node.sh
