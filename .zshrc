@@ -29,7 +29,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 
 export LANG=en_US.UTF-8
-#eval "$(dircolors -b ~/.dircolors)"
+eval "$(dircolors -b ~/.dircolors)"
+
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
@@ -38,6 +39,7 @@ zinit light zdharma/history-search-multi-word
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
 setopt share_history
