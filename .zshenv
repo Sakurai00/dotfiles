@@ -6,3 +6,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/.local/lib:$PATH
+export PATH=/usr/local/go/bin:$PATH
