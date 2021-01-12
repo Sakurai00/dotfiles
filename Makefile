@@ -6,6 +6,6 @@ link:
 	./script/link.sh
 
 ubuntu-init:
-	./script/ubuntu
+	./script/ubuntu.sh
 	./script/install.sh
 	./script/link.sh
