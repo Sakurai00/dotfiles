@@ -28,7 +28,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 
 
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 eval "$(dircolors -b ~/.dircolors)"
 
 
