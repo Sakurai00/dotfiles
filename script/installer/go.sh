@@ -6,4 +6,5 @@ sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
 
 rm ./go1.15.6.linux-amd64.tar.gz
 
-. ./script/installer/setpath.sh
+#. ./script/installer/setpath.sh
+export PATH=/usr/local/go/bin:$PATH
