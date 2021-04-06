@@ -62,3 +62,5 @@ alias his="history"
 alias relogin="exec $SHELL -l"
 alias vim="nvim"
 alias cat="batcat"
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions

@@ -6,6 +6,7 @@ ln -sf ~/dotfiles/.dircolors ~/.dircolors
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.alacritty.yml ~/.alacritty.yml
 
 
 
