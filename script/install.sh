@@ -18,4 +18,15 @@ sudo apt update
 
 ./script/installer/tmux.sh
 
-./script/installer/node.sh
+#./script/installer/node.sh
+
+
+read -n1 -p "Install alacritty? (y/N): " yn
+if [[ $yn = [yY] ]]; then
+  ./script/installer/alacritty.sh
+fi
+
+read -n1 -p "Install vscode? (y/N): " yn
+if [[ $yn = [yY] ]]; then
+  ./script/installer/vscode.sh
+fi
