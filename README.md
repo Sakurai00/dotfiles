@@ -12,6 +12,36 @@ https://github.com/romkatv/powerlevel10k/blob/master/font.md~~
 chsh -s $(which zsh)
 ```
 
+## Key
+
+### make
+- make ubuntu-init  
+ubuntu用initialization
+- make install  
+install
+- make link  
+link
+
+### shell command
+```bash
+alias ls="exa -F"
+alias ll="exa -alF"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+alias his="history"
+alias relogin="exec $SHELL -l"
+alias vim="nvim"
+alias cat="batcat"
+```
+### git
+```bash
+[alias]
+	st = status
+```
+### tmux
+- Prefix C-q
+
 
 ## 参考
 https://github.com/topics/dotfiles  
