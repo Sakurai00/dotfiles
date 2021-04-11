@@ -43,5 +43,5 @@ alias cat="batcat"
 
 ## 参考
 https://github.com/topics/dotfiles  
-https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB
+https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB  
 https://github.com/b4b4r07/dotfiles
