@@ -1,13 +1,13 @@
 #!/bin/sh -xeu
-
+. ./function.sh
 
 sudo apt update
 
-if !(type curl > /dev/null 2>&1); then
+if !(is_exist "curl"); then
     sudo apt install -y curl
 fi
 
-if !(type wget > /dev/null 2>&1); then
+if !(is_exist "wget"); then
     sudo apt install -y wget
 fi
 
@@ -30,12 +30,10 @@ fi
 #./script/installer/node.sh
 
 
-read -n1 -p "Install alacritty? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-  ./script/installer/alacritty.sh
+if (ask_yn "Install alacritty? (y/n)"); then
+    ./script/installer/alacritty.sh
 fi
 
-read -n1 -p "Install vscode? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-  ./script/installer/vscode.sh
+if (ask_yn "Install vscode? (y/n)"); then
+    ./script/installer/vscode.sh
 fi
