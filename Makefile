@@ -1,11 +1,11 @@
 install:
-	./script/install.sh
-	./script/link.sh
+	-./script/install.sh
+	-./script/link.sh
 
 link:
-	./script/link.sh
+	-./script/link.sh
 
 ubuntu-init:
-	./script/ubuntu.sh
-	./script/install.sh
-	./script/link.sh
+	-./script/ubuntu.sh
+	-./script/install.sh
+	-./script/link.sh
