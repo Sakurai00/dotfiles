@@ -1,5 +1,5 @@
 #!/bin/sh -xeu
-. ./function.sh
+. ./script/function.sh
 
 sudo apt update
 
@@ -19,7 +19,7 @@ fi
 
 ./script/installer/rust.sh
 
-./script/installer/go.sh
+#./script/installer/go.sh
 
 ./script/installer/zsh.sh
 
