@@ -1,6 +1,9 @@
 #!/bin/sh -xeu
+. ./script/function.sh
 
-sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+if (ask_yn "Change source? (y/n)"); then
+    sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+fi
 
 sudo apt update
 
