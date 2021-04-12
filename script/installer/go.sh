@@ -1,4 +1,5 @@
-#!/bin/sh -xeu
+#!/bin/sh -x
+. ./script/function.sh
 
 wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
 
@@ -6,5 +7,6 @@ sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz
 
 rm ./go1.15.6.linux-amd64.tar.gz
 
-#. ./script/installer/setpath.sh
-export PATH=$PATH:/usr/local/go/bin
+if !(is_WSL); then
+    export PATH=$PATH:/usr/local/go/bin
+fi

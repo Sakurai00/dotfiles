@@ -19,7 +19,7 @@ fi
 
 ./script/installer/rust.sh
 
-#./script/installer/go.sh
+./script/installer/go.sh
 
 ./script/installer/zsh.sh
 
@@ -30,10 +30,12 @@ fi
 #./script/installer/node.sh
 
 
-if (ask_yn "Install alacritty? (y/n)"); then
-    ./script/installer/alacritty.sh
-fi
+if !(is_WSL); then
+    if (ask_yn "Install alacritty? (y/n)"); then
+        ./script/installer/alacritty.sh
+    fi
 
-if (ask_yn "Install vscode? (y/n)"); then
-    ./script/installer/vscode.sh
+    if (ask_yn "Install vscode? (y/n)"); then
+        ./script/installer/vscode.sh
+    fi
 fi
