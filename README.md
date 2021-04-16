@@ -11,6 +11,11 @@ chsh -s $(which zsh)
 ~~font install
 https://github.com/romkatv/powerlevel10k/blob/master/font.md~~
 
+##
+![スクリーンショット 2021-04-16 131136](https://user-images.githubusercontent.com/54164011/114970880-41cb2180-9eb6-11eb-8348-f8f84e32d6be.png)
+![スクリーンショット 2021-04-16 130710](https://user-images.githubusercontent.com/54164011/114970646-c79a9d00-9eb5-11eb-8975-f134546d4a97.png)
+
+
 ## Key
 
 ### make
