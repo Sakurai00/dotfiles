@@ -3,13 +3,7 @@
 
 sudo apt update
 
-if !(is_exist "curl"); then
-    sudo apt install -y curl
-fi
-
-if !(is_exist "wget"); then
-    sudo apt install -y wget
-fi
+./script/installer/utility.sh
 
 ./script/installer/font.sh
 
