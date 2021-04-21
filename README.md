@@ -9,8 +9,6 @@ make ubuntu-init
 make install
 chsh -s $(which zsh)
 ```
-~~font install
-https://github.com/romkatv/powerlevel10k/blob/master/font.md~~
 
 ---
 ## Components
@@ -26,6 +24,9 @@ https://github.com/romkatv/powerlevel10k/blob/master/font.md~~
   - neovim
     - dein.vim
   - vscode
+
+- Font
+  - MesloLGS NF
 
 ---
 ## ScreenShot
