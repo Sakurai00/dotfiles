@@ -1,4 +1,4 @@
-#!/bin/sh -xeu
+#!/bin/sh -x
 
 sudo apt install -y zsh
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"

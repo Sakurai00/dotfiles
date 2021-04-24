@@ -1,4 +1,4 @@
-#!/bin/sh -xeu
+#!/bin/sh -x
 #rq git, rust
 . ./script/function.sh
 

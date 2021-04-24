@@ -1,4 +1,4 @@
-#!/bin/sh -xeu
+#!/bin/sh -x
 . ./script/function.sh
 
 if (ask_yn "Change source? (y/n)"); then
