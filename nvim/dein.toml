@@ -8,6 +8,9 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'tomasr/molokai'
 
 [[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]

@@ -1,4 +1,5 @@
 set encoding=utf-8
+set termguicolors
 
 set title
 set number
@@ -16,12 +17,11 @@ set ignorecase
 set incsearch
 
 
+" ====== dein installer ======
 if &compatible
   set nocompatible
 endif
-" Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
-
 if dein#load_state('~/.cache/nvim/dein')
   call dein#begin('~/.cache/nvim/dein')
   call dein#add('~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim')
@@ -31,17 +31,21 @@ if dein#load_state('~/.cache/nvim/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-
   call dein#end()
   call dein#save_state()
 endif
-
 if dein#check_install()
   call dein#install()
 endif
+" ====== dein installer ======
 
 
 set helplang=ja
-colorscheme molokai
+
+" colorscheme {molokai, ayu}
+colorscheme ayu
+" if use ayu, set ayucolor {light, mirage, dark}
+let ayucolor="mirage"
+
 let g:airline_theme='deus'
 let g:airline_powerline_fonts = 1
