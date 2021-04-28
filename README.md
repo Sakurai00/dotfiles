@@ -7,21 +7,20 @@ git clone https://github.com/Sakurai00/dotfiles.git
 cd ./dotfiles
 make ubuntu-init
 make install
-chsh -s $(which zsh)
 ```
 
 ---
 ## Components
 - Terminal
-  - alacritty
+  - alacritty (ayu mirage)
   - tmux
 
 - Shell
-  - Zsh
+  - Zsh (Powerlevel10k)
     - zinit
 
 - Editor
-  - neovim
+  - neovim (ayu mirage)
     - dein.vim
   - vscode
 
