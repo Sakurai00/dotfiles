@@ -1,11 +1,11 @@
-#!/bin/sh -x
+#!/bin/bash -x
 #rq git, rust
 . ./script/function.sh
 
 if [ ! -d ~/alacritty ]; then
     git clone https://github.com/alacritty/alacritty.git ~/alacritty
 fi
-cd ~/alacritty
+cd ~/alacritty || exit
 
 rustup override set stable
 rustup update stable
@@ -16,7 +16,7 @@ cargo build --release
 
 sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 
-if !(is_WSL); then
+if ! (is_WSL); then
     sudo cp target/release/alacritty /usr/local/bin
     sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
     sudo desktop-file-install extra/linux/Alacritty.desktop

@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 . ./script/function.sh
 
 sudo apt update
@@ -24,7 +24,7 @@ sudo apt update
 #./script/installer/node.sh
 
 
-if !(is_WSL); then
+if ! (is_WSL); then
     if (ask_yn "Install alacritty? (y/n)"); then
         ./script/installer/alacritty.sh
     fi

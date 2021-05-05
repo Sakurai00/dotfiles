@@ -1,11 +1,11 @@
-#!/bin/sh -x
+#!/bin/bash -x
 . ./script/function.sh
 
-if !(is_exist "curl"); then
+if ! (is_exist "curl"); then
     sudo apt install -y curl
 fi
 
-if !(is_exist "wget"); then
+if ! (is_exist "wget"); then
     sudo apt install -y wget
 fi
 

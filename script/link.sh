@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
