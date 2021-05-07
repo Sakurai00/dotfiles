@@ -15,4 +15,4 @@ ln -sfn ~/dotfiles/.zsh ~/.zsh
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
-ln -sfn ~/dotfiles/nvim ~/.config/
+ln -sfn ~/dotfiles/nvim ~/.config/nvim
