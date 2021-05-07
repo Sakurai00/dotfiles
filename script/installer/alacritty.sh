@@ -26,5 +26,5 @@ fi
 sudo mkdir -p /usr/local/share/man/man1
 gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
 
-mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+mkdir -p ${ZDOTDIR:-~}/zsh_functions
+cp extra/completions/_alacritty ${ZDOTDIR:-~}/zsh_functions/_alacritty

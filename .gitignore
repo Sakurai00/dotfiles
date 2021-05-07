@@ -1,3 +1,6 @@
 .ssh/
 .aws/
 .azure/
+.zsh/zsh_functions/
+.zsh/zsh-history
+.zsh/.zcompdump
