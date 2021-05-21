@@ -1,3 +1,6 @@
+export ZDOTDIR=$HOME/.zsh
+
+
 source "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
