@@ -1,5 +1,4 @@
 #!/bin/bash -xeu
 . ./script/function.sh
 
-is_WSL
-echo $?
+echo_module_name zsh

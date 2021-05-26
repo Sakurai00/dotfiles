@@ -23,3 +23,11 @@ is_WSL() {
         return 1
     fi
 }
+
+echo_module_name() {
+    name=$1
+    ESC=$(printf '\033')
+    printf "\n\n"
+    echo "====== ${ESC}[1;97;49m ${name} ${ESC}[m ======"
+    printf "\n"
+}

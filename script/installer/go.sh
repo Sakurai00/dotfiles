@@ -1,5 +1,7 @@
-#!/bin/bash -x
+#!/bin/bash
 . ./script/function.sh
+
+echo_module_name go
 
 wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
 

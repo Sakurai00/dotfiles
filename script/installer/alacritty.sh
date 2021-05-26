@@ -1,6 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
 #rq git, rust
 . ./script/function.sh
+
+echo_module_name alacritty
 
 if [ ! -d ~/alacritty ]; then
     git clone https://github.com/alacritty/alacritty.git ~/alacritty

@@ -1,4 +1,7 @@
-#!/bin/bash -x
+#!/bin/bash
+. ./script/function.sh
+
+echo_module_name fonts
 
 sudo apt install -y gnome-font-viewer
 
