@@ -5,7 +5,7 @@ shell:
 
 
 font:
-    size: 1
+    size: 11
     normal:
         family: "MesloLGS NF"
         style: Regular
