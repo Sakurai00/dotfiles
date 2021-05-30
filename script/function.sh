@@ -31,3 +31,14 @@ echo_module_name() {
     echo "====== ${ESC}[1;97;49m ${name} ${ESC}[m ======"
     printf "\n"
 }
+
+get_osd() {
+    if [ -e /etc/lsb-release ]; then
+        if grep -q "Ubuntu" /etc/lsb-release ; then
+            osd="Ubuntu"
+        elif grep -q "LinuxMint" /etc/lsb-release ; then
+            osd="LinuxMint"
+        fi
+    fi
+    echo $osd
+}
