@@ -21,6 +21,8 @@ sudo apt update
 
 ./script/installer/tmux.sh
 
+./script/installer/Docker.sh
+
 #./script/installer/node.sh
 
 
