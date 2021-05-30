@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 . ./script/function.sh
 
 if (ask_yn "Change source? (y/n)"); then

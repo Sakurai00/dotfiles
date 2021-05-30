@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 . ./script/function.sh
 
 sudo apt update
