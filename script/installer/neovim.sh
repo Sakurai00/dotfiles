@@ -1,4 +1,7 @@
 #!/bin/bash -x
+. ./script/function.sh
+
+echo_module_name vim
 
 sudo apt install -y vim
 

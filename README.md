@@ -7,6 +7,8 @@ git clone https://github.com/Sakurai00/dotfiles.git
 cd ./dotfiles
 make ubuntu-init
 make install
+
+chsh -s $(which zsh)
 ```
 
 ---

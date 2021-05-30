@@ -1,4 +1,7 @@
 #!/bin/bash -x
+. ./script/function.sh
+
+echo_module_name tmux
 
 sudo apt install -y tmux
 
