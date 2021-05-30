@@ -31,8 +31,7 @@ chsh -s $(which zsh)
 
 ---
 ## ScreenShot
-![](https://user-images.githubusercontent.com/54164011/114970880-41cb2180-9eb6-11eb-8348-f8f84e32d6be.png)
-![](https://user-images.githubusercontent.com/54164011/114970646-c79a9d00-9eb5-11eb-8975-f134546d4a97.png)
+![](https://user-images.githubusercontent.com/54164011/120113830-440fe380-c1b7-11eb-9cb4-56a770d772c4.png)
 
 ---
 ## Commands & Key Config
