@@ -21,5 +21,5 @@ if [ ! -d ~/.config/nvim ]; then
     mkdir ~/.config/nvim
 fi
 #ln -sfn ~/dotfiles/nvim ~/.config/nvim
-ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/nvim/dein.toml ~/.config/nvim/dein.toml
+ln -sf ~/dotfiles/.nvim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/.nvim/dein.toml ~/.config/nvim/dein.toml
