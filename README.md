@@ -12,6 +12,10 @@ chsh -s $(which zsh)
 ```
 
 ---
+## ScreenShot
+![](https://user-images.githubusercontent.com/54164011/120113830-440fe380-c1b7-11eb-9cb4-56a770d772c4.png)
+
+---
 ## Components
 - Terminal
   - alacritty (ayu mirage)
@@ -26,12 +30,17 @@ chsh -s $(which zsh)
     - dein.vim
   - vscode
 
+- Lang
+  - C/C++
+  - Python
+  - Rust
+  - Go
+
 - Font
   - MesloLGS NF
 
----
-## ScreenShot
-![](https://user-images.githubusercontent.com/54164011/120113830-440fe380-c1b7-11eb-9cb4-56a770d772c4.png)
+- other
+  - Docker
 
 ---
 ## Commands & Key Config
