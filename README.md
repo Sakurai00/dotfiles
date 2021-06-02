@@ -9,6 +9,9 @@ make ubuntu-init
 make install
 
 chsh -s $(which zsh)
+
+tmux
+C+q i
 ```
 
 ---
