@@ -9,6 +9,16 @@ if [ ! -d ~/.local/share/fonts ]; then
     mkdir ~/.local/share/fonts
 fi
 
-curl -L https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -o "MesloLGS NF Regular.ttf"
-sudo mv "MesloLGS NF Regular.ttf" ~/.local/share/fonts
+if [ ! -d ~/dotfiles/fonts/font ]; then
+    mkdir -p ~/dotfiles/fonts/font
+fi
+
+curl -L https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -o "$HOME/dotfiles/fonts/font/MesloLGS NF Regular.ttf"
+
+curl -L https://github.com/adobe-fonts/source-han-code-jp/archive/refs/tags/2.012R.tar.gz -o "$HOME/dotfiles/fonts/source-han-code.tar.gz"
+tar -zxvf ~/dotfiles/fonts/source-han-code.tar.gz -C ~/dotfiles/fonts/
+cp ~/dotfiles/fonts/source-han-code-jp-2.012R/OTF/* ~/dotfiles/fonts/font
+
+
+cp ~/dotfiles/fonts/font/* ~/.local/share/fonts
 fc-cache -fv
