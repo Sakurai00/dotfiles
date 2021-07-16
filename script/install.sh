@@ -21,7 +21,9 @@ sudo apt update
 
 ./script/installer/tmux.sh
 
-./script/installer/Docker.sh
+if (ask_yn "Install Docker? (y/n)"); then
+    ./script/installer/Docker.sh
+fi
 
 #./script/installer/node.sh
 

@@ -9,7 +9,6 @@ ln -sf ~/dotfiles/.alacritty.yml ~/.alacritty.yml
 if [ ! -d ~/.zsh ]; then
     mkdir ~/.zsh
 fi
-#ln -sfn ~/dotfiles/.zsh ~/.zsh
 ln -sf ~/dotfiles/.zsh/.zshrc ~/.zsh/.zshrc
 ln -sf ~/dotfiles/.zsh/alias.zsh ~/.zsh/alias.zsh
 ln -sf ~/dotfiles/.zsh/plugin.zsh ~/.zsh/plugin.zsh
@@ -20,6 +19,5 @@ ln -sf ~/dotfiles/.zsh/.dircolors ~/.zsh/.dircolors
 if [ ! -d ~/.config/nvim ]; then
     mkdir ~/.config/nvim
 fi
-#ln -sfn ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/.nvim/init.vim ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/.nvim/dein.toml ~/.config/nvim/dein.toml
