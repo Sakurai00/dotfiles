@@ -10,6 +10,7 @@ make install
 
 chsh -s $(which zsh)
 
+zsh
 tmux
 C+q i
 ```
