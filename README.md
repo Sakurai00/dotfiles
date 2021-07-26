@@ -1,11 +1,24 @@
 # dotfiles
 
+## TOC
+- [dotfiles](#dotfiles)
+  - [TOC](#toc)
+  - [Installation](#installation)
+  - [ScreenShot](#screenshot)
+  - [Components](#components)
+  - [Tree](#tree)
+  - [Commands & Key Config](#commands--key-config)
+    - [make](#make)
+    - [shell command](#shell-command)
+    - [git](#git)
+    - [tmux](#tmux)
+  - [参考にしたもの](#参考にしたもの)
 
+---
 ## Installation
 ```bash
-git clone https://github.com/Sakurai00/dotfiles.git
+git clone https://github.com/Sakurai00/dotfiles.git ~/dotfiles
 cd ./dotfiles
-make ubuntu-init
 make install
 
 chsh -s $(which zsh)
@@ -47,6 +60,48 @@ C+q i
   - Docker
 
 ---
+## Tree
+```bash
+.
+├── .alacritty.yml
+├── .gitconfig
+├── .gitignore
+├── .nvim
+│  ├── dein.toml
+│  └── init.vim
+├── .tmux.conf
+├── .zsh
+│  ├── .dircolors
+│  ├── .zshrc
+│  ├── alias.zsh
+│  ├── p10k.zsh
+│  └── plugin.zsh
+├── .zshenv
+├── Makefile
+├── README.md
+└── script
+   ├── function.sh
+   ├── install.sh
+   ├── installer
+   │  ├── alacritty.sh
+   │  ├── c-cpp.sh
+   │  ├── Docker.sh
+   │  ├── font.sh
+   │  ├── go.sh
+   │  ├── neovim.sh
+   │  ├── node.sh
+   │  ├── python.sh
+   │  ├── rust.sh
+   │  ├── tmux.sh
+   │  ├── utility.sh
+   │  ├── vscode.sh
+   │  └── zsh.sh
+   ├── link.sh
+   ├── test.sh
+   └── ubuntu.sh
+```
+
+---
 ## Commands & Key Config
 
 ### make
@@ -60,7 +115,9 @@ ubuntu用initialization
 ### shell command
 ```bash
 alias ls="exa -F"
-alias ll="exa -alF"
+alias lt="exa -aT -I '.git|.github'"
+alias ll="exa -alF --git"
+alias llt="exa -alFT -I '.git'"
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
