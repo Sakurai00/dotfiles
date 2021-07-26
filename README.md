@@ -18,7 +18,7 @@
 ## Installation
 ```bash
 git clone https://github.com/Sakurai00/dotfiles.git ~/dotfiles
-cd ./dotfiles
+cd ~/dotfiles
 make install
 
 chsh -s $(which zsh)
