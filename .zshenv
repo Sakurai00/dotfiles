@@ -25,6 +25,13 @@ if [ -d "$HOME/.pyenv" ] ; then
     PYENV_ROOT="$HOME/.pyenv"
     PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
 fi
+
+if [ -d "$HOME/.rbenv" ] ; then
+    PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
+
 
 . "$HOME/.cargo/env"

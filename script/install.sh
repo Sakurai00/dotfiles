@@ -25,6 +25,10 @@ if (ask_yn "Install Docker? (y/n)"); then
     ./script/installer/Docker.sh
 fi
 
+if (ask_yn "Install Ruby? (y/n)"); then
+    ./script/installer/Ruby.sh
+fi
+
 #./script/installer/node.sh
 
 
