@@ -23,3 +23,4 @@ setopt auto_cd
 
 
 fpath+=${ZDOTDIR:-~}/zsh_functions
+eval "$(pyenv init -)"
