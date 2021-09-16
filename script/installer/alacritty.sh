@@ -1,13 +1,13 @@
 #!/bin/bash -x
 #rq git, rust
-. ./script/function.sh
-
+source ./script/function.sh
 echo_module_name alacritty
 
-if [ ! -d ~/alacritty ]; then
-    git clone https://github.com/alacritty/alacritty.git ~/alacritty
+
+if [ ! -d "$HOME/alacritty" ]; then
+    git clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
 fi
-cd ~/alacritty || exit
+cd "$HOME/alacritty" || exit
 
 rustup override set stable
 rustup update stable

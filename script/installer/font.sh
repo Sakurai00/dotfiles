@@ -1,16 +1,16 @@
 #!/bin/bash -x
-. ./script/function.sh
-
+source ./script/function.sh
 echo_module_name fonts
+
 
 sudo apt install -y gnome-font-viewer
 
-if [ ! -d ~/.local/share/fonts ]; then
-    mkdir ~/.local/share/fonts
+if [ ! -d "$HOME/.local/share/fonts" ]; then
+    mkdir "$HOME/.local/share/fonts"
 fi
 
-if [ ! -d ~/dotfiles/fonts/font ]; then
-    mkdir -p ~/dotfiles/fonts/font
+if [ ! -d "$HOME/dotfiles/fonts/font" ]; then
+    mkdir -p "$HOME/dotfiles/fonts/font"
 fi
 
 curl -L https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -o "$HOME/dotfiles/fonts/font/MesloLGS NF Regular.ttf"

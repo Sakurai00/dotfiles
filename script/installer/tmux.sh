@@ -1,10 +1,13 @@
 #!/bin/bash -x
-. ./script/function.sh
-
+source ./script/function.sh
 echo_module_name tmux
 
+
+# Install tmux
 sudo apt install -y tmux
 
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi

@@ -1,5 +1,6 @@
 #!/bin/bash -x
-. ./script/function.sh
+source ./script/function.sh
+
 
 sudo apt update
 
