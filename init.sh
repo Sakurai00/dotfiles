@@ -12,5 +12,5 @@ git clone https://github.com/Sakurai00/dotfiles.git "$HOME/dotfiles"
 export DOTDIR="$HOME/dotfiles/"
 
 
-source $DOTDIR/script/install.sh
-source $DOTDIR/script/link.sh
+"$DOTDIR/script/install.sh"
+"$DOTDIR/script/link.sh"

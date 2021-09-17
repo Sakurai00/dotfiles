@@ -1,6 +1,7 @@
 #!/bin/bash -x
+export DOTDIR="$HOME/dotfiles/"
+cd "$DOTDIR"
 source "$DOTDIR/script/function.sh"
-
 
 sudo apt update
 
