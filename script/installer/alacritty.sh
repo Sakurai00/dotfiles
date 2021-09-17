@@ -1,6 +1,6 @@
 #!/bin/bash -x
 #rq git, rust
-source ./script/function.sh
+source "$DOTDIR/script/function.sh"
 echo_module_name alacritty
 
 

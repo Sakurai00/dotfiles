@@ -1,5 +1,5 @@
 #!/bin/bash -x
-source ./script/function.sh
+source "$DOTDIR/script/function.sh"
 echo_module_name C/C++
 
 

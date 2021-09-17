@@ -12,15 +12,25 @@
     - [shell command](#shell-command)
     - [git](#git)
     - [tmux](#tmux)
-  - [参考にしたもの](#参考にしたもの)
+  - [参考](#参考)
 
 ---
 ## Installation
 ```bash
+bash -c "$(curl -L raw.github.com/Sakurai00/dotfiles/master/init.sh)
+```
+
+or
+
+```bash
 git clone https://github.com/Sakurai00/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 make install
+```
 
+and
+
+```bash
 chsh -s $(which zsh)
 
 zsh
@@ -135,7 +145,7 @@ alias cat="batcat"
 - Prefix C-q
 
 
-## 参考にしたもの
+## 参考
 https://github.com/topics/dotfiles  
 https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB  
 https://github.com/b4b4r07/dotfiles

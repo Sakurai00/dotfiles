@@ -1,4 +1,4 @@
 #!/bin/bash -xeu
-. ./script/function.sh
+source "$DOTDIR/script/function.sh"
 
 get_osd
