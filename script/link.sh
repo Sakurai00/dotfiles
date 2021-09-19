@@ -1,23 +1,25 @@
 #!/bin/bash -x
-
-ln -sf ~/dotfiles/.zshenv ~/.zshenv
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.alacritty.yml ~/.alacritty.yml
+export DOTDIR="$HOME/dotfiles/"
 
 
-if [ ! -d ~/.zsh ]; then
-    mkdir ~/.zsh
+ln -sf "$DOTDIR/.zshenv" "$HOME/.zshenv"
+ln -sf "$DOTDIR/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$DOTDIR/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTDIR/.alacritty.yml" "$HOME/.alacritty.yml"
+
+
+if [ ! -d "$HOME/.zsh" ]; then
+    mkdir "$HOME/.zsh"
 fi
-ln -sf ~/dotfiles/.zsh/.zshrc ~/.zsh/.zshrc
-ln -sf ~/dotfiles/.zsh/alias.zsh ~/.zsh/alias.zsh
-ln -sf ~/dotfiles/.zsh/plugin.zsh ~/.zsh/plugin.zsh
-ln -sf ~/dotfiles/.zsh/p10k.zsh ~/.zsh/p10k.zsh
-ln -sf ~/dotfiles/.zsh/.dircolors ~/.zsh/.dircolors
+ln -sf "$DOTDIR/.zsh/.zshrc" "$HOME/.zsh/.zshrc"
+ln -sf "$DOTDIR/.zsh/alias.zsh" "$HOME/.zsh/alias.zsh"
+ln -sf "$DOTDIR/.zsh/plugin.zsh" "$HOME/.zsh/plugin.zsh"
+ln -sf "$DOTDIR/.zsh/p10k.zsh" "$HOME/.zsh/p10k.zsh"
+ln -sf "$DOTDIR/.zsh/.dircolors" "$HOME/.zsh/.dircolors"
 
 
-if [ ! -d ~/.config/nvim ]; then
-    mkdir ~/.config/nvim
+if [ ! -d "$HOME/.config/nvim" ]; then
+    mkdir "$HOME/.config/nvim"
 fi
-ln -sf ~/dotfiles/.nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/.nvim/dein.toml ~/.config/nvim/dein.toml
+ln -sf "$DOTDIR/.nvim/init.vim" "$HOME/.config/nvim/init.vim"
+ln -sf "$DOTDIR/.nvim/dein.toml" "$HOME/.config/nvim/dein.toml"

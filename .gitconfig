@@ -1,11 +1,15 @@
 [user]
 	email = K.Sakurai_2000@outlook.com
-	name = sakurai
+	name = Sakurai
 [color]
 	ui = true
 [alias]
 	st = status
 [core]
 	autocrlf = false
+	editor = vim
+	quotepath = false
 [push]
 	default = current
+[pull]
+	ff = only
