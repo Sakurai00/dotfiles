@@ -7,5 +7,9 @@
 	st = status
 [core]
 	autocrlf = false
+	editor = vim
+	quotepath = false
 [push]
 	default = current
+[pull]
+	ff = only
