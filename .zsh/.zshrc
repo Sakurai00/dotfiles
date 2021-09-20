@@ -1,3 +1,10 @@
+# ====== Powerlevel10k Instant prompt (keep top) ======
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+# ====== ====== ======
+
+
 # export LANG=en_US.UTF-8
 source $ZDOTDIR/plugin.zsh
 source $ZDOTDIR/alias.zsh
