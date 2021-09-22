@@ -25,11 +25,11 @@ sudo apt update
 ./script/installer/tmux.sh
 
 if (ask_yn "Install Docker? (y/n)"); then
-    ./script/installer/Docker.sh
+    ./script/installer/docker.sh
 fi
 
 if (ask_yn "Install Ruby? (y/n)"); then
-    ./script/installer/Ruby.sh
+    ./script/installer/ruby.sh
 fi
 
 #./script/installer/node.sh
