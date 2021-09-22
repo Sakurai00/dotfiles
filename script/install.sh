@@ -12,6 +12,8 @@ sudo apt update
 
 ./script/installer/c-cpp.sh
 
+./script/installer/anyenv.sh
+
 ./script/installer/python.sh
 
 ./script/installer/rust.sh

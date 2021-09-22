@@ -1,21 +1,22 @@
 #!/bin/bash -x
+# Requires: git, anyenv
 source "$DOTDIR/script/function.sh"
 echo_module_name python
 
 
-sudo apt install -y python3-pip
-
-
 # Install pyenv
-if [ ! -d "$HOME/.pyenv" ]; then
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-fi
-cd ~/.pyenv && src/configure && make -C src
+anyenv install pyenv
 
-source "$HOME/.zshenv"
+eval "$(anyenv init -)"
 
+
+# Install Python
 pyenv install 3.9.5
 pyenv global 3.9.5
+
+
+# Install pip
+sudo apt install -y python3-pip
 
 
 # Install poetry

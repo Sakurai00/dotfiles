@@ -35,3 +35,7 @@ zinit wait lucid light-mode for \
 zinit wait'1' lucid light-mode for \
   zdharma/history-search-multi-word
 # ====== ====== ======
+
+# ====== anyenv load ======
+eval "$(anyenv init -)"
+# ====== ====== ======

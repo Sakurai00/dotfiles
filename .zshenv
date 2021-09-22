@@ -23,16 +23,8 @@ if [ -d "/usr/local/go/bin" ] ; then
     export PATH="/usr/local/go/bin:$PATH"
 fi
 
-if [ -d "$HOME/.pyenv" ] ; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-fi
-
-if [ -d "$HOME/.rbenv" ] ; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
+if [ -d "/usr/local/go/bin" ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
 fi
 
 if [ -d "$HOME/.cargo" ] ; then
