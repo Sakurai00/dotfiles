@@ -5,5 +5,5 @@ install:
 link:
 	-./script/link.sh
 
-ubuntu-init:
-	-./script/ubuntu.sh
+update:
+	-./script/update.sh
