@@ -59,12 +59,14 @@ C+q i
 
 - Lang
   - C/C++
-  - Python
+  - Python (pyenv, poetry)
   - Rust
   - Go
+  - Ruby (rbenv)
 
 - Font
   - MesloLGS NF
+  - Source han code JP
 
 - other
   - Docker
@@ -87,6 +89,7 @@ C+q i
 │  ├── p10k.zsh
 │  └── plugin.zsh
 ├── .zshenv
+├── init.sh
 ├── Makefile
 ├── README.md
 └── script
@@ -94,13 +97,15 @@ C+q i
    ├── install.sh
    ├── installer
    │  ├── alacritty.sh
+   │  ├── anyenv.sh
    │  ├── c-cpp.sh
-   │  ├── Docker.sh
+   │  ├── docker.sh
    │  ├── font.sh
    │  ├── go.sh
    │  ├── neovim.sh
    │  ├── node.sh
    │  ├── python.sh
+   │  ├── ruby.sh
    │  ├── rust.sh
    │  ├── tmux.sh
    │  ├── utility.sh
@@ -108,19 +113,20 @@ C+q i
    │  └── zsh.sh
    ├── link.sh
    ├── test.sh
-   └── ubuntu.sh
+   ├── ubuntu.sh
+   └── update.sh
 ```
 
 ---
 ## Commands & Key Config
 
 ### make
-- make ubuntu-init  
-ubuntu用initialization
 - make install  
 パッケージインストール
 - make link  
 シンボリックリンク作成
+- make update  
+パッケージアップデート
 
 ### shell command
 ```bash
