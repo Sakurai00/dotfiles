@@ -9,20 +9,20 @@ fi
 # ====== ====== ======
 
 
-# ====== Zinit load ======
+# ====== Load Zinit ======
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # ====== ====== ======
 
 
-# ====== Powerlevel10k load ======
+# ====== Load Powerlevel10k ======
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
 # ====== ====== ======
 
 
-# ====== Zinit plugins load ======
+# ====== Load Zinit plugins ======
 # https://zdharma.github.io/zinit/wiki/Example-Minimal-Setup/
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
@@ -36,6 +36,6 @@ zinit wait'1' lucid light-mode for \
   zdharma/history-search-multi-word
 # ====== ====== ======
 
-# ====== anyenv load ======
+# ====== Load anyenv======
 eval "$(anyenv init -)"
 # ====== ====== ======
