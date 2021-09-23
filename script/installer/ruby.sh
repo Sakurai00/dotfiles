@@ -1,21 +1,15 @@
 #!/bin/bash -x
+# Requires: anyenv
 source "$DOTDIR/script/function.sh"
 echo_module_name Ruby
 
 
 # Install rbenv
-if [ ! -d "$HOME/.rbenv" ]; then
-    git clone https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
-fi
-cd "$HOME/.rbenv" && src/configure && make -C src
+anyenv install rbenv
 
-source "$HOME/.zshenv"
+eval "$(anyenv init -)"
 
 
-# Install ruby-build
-if [ ! -d "$HOME/.rbenv/plugins/ruby-build" ]; then
-    git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
-fi
-
+# Install Ruby
 rbenv install 3.0.2
 rbenv global 3.0.2

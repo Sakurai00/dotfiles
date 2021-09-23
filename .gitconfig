@@ -13,3 +13,5 @@
 	default = current
 [pull]
 	ff = only
+[credential]
+	helper = cache

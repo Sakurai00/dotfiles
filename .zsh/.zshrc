@@ -6,6 +6,8 @@ fi
 
 
 # export LANG=en_US.UTF-8
+
+
 source $ZDOTDIR/plugin.zsh
 source $ZDOTDIR/alias.zsh
 
