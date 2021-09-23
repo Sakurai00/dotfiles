@@ -1,5 +1,5 @@
 #!/bin/bash -x
-# Requires: git, anyenv
+# Requires: anyenv
 source "$DOTDIR/script/function.sh"
 echo_module_name Ruby
 
