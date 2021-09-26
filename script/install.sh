@@ -20,6 +20,8 @@ sudo apt update
 
 ./script/installer/go.sh
 
+./script/installer/lazygit.sh
+
 ./script/installer/zsh.sh
 
 ./script/installer/neovim.sh
