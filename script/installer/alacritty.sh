@@ -1,5 +1,5 @@
 #!/bin/bash -x
-#rq git, rust
+# Requires: Git, Rust
 source "$DOTDIR/script/function.sh"
 echo_module_name alacritty
 
