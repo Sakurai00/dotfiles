@@ -1,8 +1,7 @@
 #!/bin/bash -x
 export DOTDIR="$HOME/dotfiles/"
-cd "$DOTDIR"
+cd "$DOTDIR" || exit
 source "$DOTDIR/script/function.sh"
-
 
 sudo apt update
 
@@ -37,7 +36,6 @@ if (ask_yn "Install Ruby? (y/n)"); then
 fi
 
 #./script/installer/node.sh
-
 
 if ! (is_WSL); then
     if (ask_yn "Install alacritty? (y/n)"); then

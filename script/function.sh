@@ -2,17 +2,17 @@
 
 ask_yn() {
     while true; do
-        read -p "$1 " yn
+        read -pr "$1 " yn
         case $yn in
-            [Yy]* ) return 0;;
-            [Nn]* ) return 1;;
-            * ) continue;;
+        [Yy]*) return 0 ;;
+        [Nn]*) return 1 ;;
+        *) continue ;;
         esac
     done
 }
 
 is_exist() {
-    type "$1" > /dev/null 2>&1
+    type "$1" >/dev/null 2>&1
     return $?
 }
 
@@ -34,9 +34,9 @@ echo_module_name() {
 
 get_osd() {
     if [ -e /etc/lsb-release ]; then
-        if grep -q "Ubuntu" /etc/lsb-release ; then
+        if grep -q "Ubuntu" /etc/lsb-release; then
             osd="Ubuntu"
-        elif grep -q "LinuxMint" /etc/lsb-release ; then
+        elif grep -q "LinuxMint" /etc/lsb-release; then
             osd="LinuxMint"
         fi
     fi

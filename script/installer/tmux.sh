@@ -2,10 +2,8 @@
 source "$DOTDIR/script/function.sh"
 echo_module_name tmux
 
-
 # Install tmux
 sudo apt install -y tmux
-
 
 # Install tpm
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

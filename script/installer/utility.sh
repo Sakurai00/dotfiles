@@ -2,7 +2,6 @@
 source "$DOTDIR/script/function.sh"
 echo_module_name utillity
 
-
 if ! (is_exist "curl"); then
     sudo apt install -y curl
 fi
