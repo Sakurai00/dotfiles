@@ -8,10 +8,13 @@
 [core]
 	autocrlf = false
 	editor = vim
-	quotepath = false
+	quotepath = false # 日本語ファイルの文字化け防止
+	ignorecase = false # ファイルの大文字小文字を区別する
 [push]
 	default = current
 [pull]
 	ff = only
+[merge]
+	ff = false
 [credential]
 	helper = cache
