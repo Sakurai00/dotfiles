@@ -11,3 +11,7 @@ if ! (is_exist "wget"); then
 fi
 
 sudo apt install -y neofetch
+
+sudo apt install -y unzip
+
+sudo apt install -y git
