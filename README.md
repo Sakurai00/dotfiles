@@ -1,5 +1,8 @@
 # dotfiles
 
+<details>
+<summary>Table of Contents</summary>
+
 ## TOC
 - [dotfiles](#dotfiles)
   - [TOC](#toc)
@@ -13,6 +16,8 @@
     - [git](#git)
     - [tmux](#tmux)
   - [参考](#参考)
+
+</details>
 
 ---
 ## Installation
@@ -84,16 +89,22 @@ C+q i
 ├── .tmux.conf
 ├── .zsh
 │  ├── .dircolors
+│  ├── .zshenv
 │  ├── .zshrc
 │  ├── alias.zsh
 │  ├── p10k.zsh
 │  └── plugin.zsh
-├── .zshenv
 ├── init.sh
 ├── Makefile
 ├── README.md
 └── script
-   ├── function.sh
+   ├── chmodx.sh
+   ├── functions
+   │  ├── ask_yn
+   │  ├── echo_module_name
+   │  ├── get_osd
+   │  ├── is_exist
+   │  └── is_WSL
    ├── install.sh
    ├── installer
    │  ├── alacritty.sh
@@ -102,6 +113,7 @@ C+q i
    │  ├── docker.sh
    │  ├── font.sh
    │  ├── go.sh
+   │  ├── lazygit.sh
    │  ├── neovim.sh
    │  ├── node.sh
    │  ├── python.sh
@@ -112,7 +124,7 @@ C+q i
    │  ├── vscode.sh
    │  └── zsh.sh
    ├── link.sh
-   ├── test.sh
+   ├── set_path.sh
    ├── ubuntu.sh
    └── update.sh
 ```
@@ -145,7 +157,10 @@ alias cat="batcat"
 ### git
 ```bash
 [alias]
-	st = status
+	st = status -sb
+	df = diff --color-words -w
+	tree = log --graph --oneline
+	logl = log --date=format:'%Y/%m/%d %H:%M:%S' --pretty=format:'%C(green)%h %C(reset)%cd %C(blue)%cn %C(red)%d %C(reset)%s'
 ```
 ### tmux
 - Prefix C-q
