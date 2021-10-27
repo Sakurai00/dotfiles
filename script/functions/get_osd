@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -e /etc/lsb-release ]; then
+    if grep -q "Ubuntu" /etc/lsb-release ; then
+        osd="Ubuntu"
+    elif grep -q "LinuxMint" /etc/lsb-release ; then
+        osd="LinuxMint"
+    fi
+fi
+echo $osd

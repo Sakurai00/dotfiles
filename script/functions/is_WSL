@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+    return 0
+else
+    return 1
+fi
