@@ -1,7 +1,5 @@
 #!/bin/bash -x
-export DOTDIR="$HOME/dotfiles/"
 
-ln -sf "$DOTDIR/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTDIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTDIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTDIR/.alacritty.yml" "$HOME/.alacritty.yml"
@@ -9,6 +7,7 @@ ln -sf "$DOTDIR/.alacritty.yml" "$HOME/.alacritty.yml"
 if [ ! -d "$HOME/.zsh" ]; then
     mkdir "$HOME/.zsh"
 fi
+ln -sf "$DOTDIR/.zsh/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTDIR/.zsh/.zshrc" "$HOME/.zsh/.zshrc"
 ln -sf "$DOTDIR/.zsh/alias.zsh" "$HOME/.zsh/alias.zsh"
 ln -sf "$DOTDIR/.zsh/plugin.zsh" "$HOME/.zsh/plugin.zsh"

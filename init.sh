@@ -8,7 +8,7 @@ fi
 
 git clone https://github.com/Sakurai00/dotfiles.git "$HOME/dotfiles"
 
-export DOTDIR="$HOME/dotfiles/"
+source "$HOME/dotfiles/script/set_path.sh"
 
 "$DOTDIR/script/install.sh"
 "$DOTDIR/script/link.sh"

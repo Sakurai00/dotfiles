@@ -1,6 +1,5 @@
 #!/bin/bash -x
 # Requires: anyenv
-source "$DOTDIR/script/function.sh"
 echo_module_name Ruby
 
 # Install rbenv

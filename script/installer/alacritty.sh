@@ -1,6 +1,5 @@
 #!/bin/bash -x
 # Requires: Git, Rust
-source "$DOTDIR/script/function.sh"
 echo_module_name alacritty
 
 if [ ! -d "$HOME/alacritty" ]; then

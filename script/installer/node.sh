@@ -1,5 +1,4 @@
 #!/bin/bash -x
-source "$DOTDIR/script/function.sh"
 echo_module_name node
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash

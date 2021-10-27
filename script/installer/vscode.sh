@@ -1,5 +1,4 @@
 #!/bin/bash -x
-source "$DOTDIR/script/function.sh"
 echo_module_name vscode
 
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg

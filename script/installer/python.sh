@@ -1,6 +1,5 @@
 #!/bin/bash -x
 # Requires: git, anyenv
-source "$DOTDIR/script/function.sh"
 echo_module_name python
 
 # Install pyenv

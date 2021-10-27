@@ -1,5 +1,4 @@
 #!/bin/bash -x
-source "$DOTDIR/script/function.sh"
 echo_module_name Docker
 
 sudo apt install -y \
