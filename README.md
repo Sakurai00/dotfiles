@@ -72,6 +72,7 @@ C+q i
 - Font
   - MesloLGS NF
   - Source han code JP
+  - PlemolJP NF
 
 - other
   - Docker
