@@ -1,4 +1,4 @@
-export DOTDIR="$HOME/dotfiles/"
+export DOTDIR="$HOME/dotfiles"
 export ZDOTDIR=$HOME/.zsh
 export PATH="$DOTDIR/script/functions:$PATH"
 
