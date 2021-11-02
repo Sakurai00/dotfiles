@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 if (ask_yn "Change source? (y/n)"); then
-    sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+    sudo sed -i.bak -e 's%http://[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g' /etc/apt/sources.list
 fi
 
 sudo apt update
