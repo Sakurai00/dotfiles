@@ -36,6 +36,16 @@ zinit wait'1' lucid light-mode for \
   zdharma-continuum/history-search-multi-word
 # ====== ====== ======
 
-# ====== Load anyenv======
+
+# ====== Load completion ======
+zinit wait'1' lucid as"completion" is-snippet for \
+  https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
+  https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose \
+  https://github.com/ilikenwf/apt-fast/blob/master/completions/zsh/_apt-fast \
+  https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty \
+# ====== ====== ======
+
+
+# ====== Load anyenv ======
 eval "$(anyenv init -)"
 # ====== ====== ======

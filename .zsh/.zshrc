@@ -29,6 +29,3 @@ SAVEHIST=1000000
 setopt hist_ignore_all_dups
 setopt correct
 setopt auto_cd
-
-
-fpath+=${ZDOTDIR:-~}/zsh_functions
