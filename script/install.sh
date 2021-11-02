@@ -5,6 +5,8 @@ sudo apt update
 
 ./script/installer/utility.sh
 
+./script/installer/apt-fast.sh
+
 ./script/installer/font.sh
 
 ./script/installer/c-cpp.sh

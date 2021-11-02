@@ -1,3 +1,9 @@
+alias sudo='sudo '
+
+if type apt-fast > /dev/null 2>&1; then
+    alias apt="apt-fast"
+fi
+
 if type exa > /dev/null 2>&1; then
     alias ls="exa -F"
     alias lt="exa -aT -I '.git|.github'"

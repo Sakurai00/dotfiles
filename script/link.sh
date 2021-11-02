@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+sudo ln -sf "$DOTDIR/apt-fast.conf" "/etc/apt-fast.conf"
 ln -sf "$DOTDIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTDIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTDIR/.alacritty.yml" "$HOME/.alacritty.yml"
