@@ -16,6 +16,7 @@ alias mvi="mv -i"
 alias rmi="rm -i"
 alias his="history"
 alias relogin="exec $SHELL -l"
+alias getpath="echo $PATH | sed -e 's/:/\n/g'"
 
 if type nvim > /dev/null 2>&1; then
     alias vim="nvim"
