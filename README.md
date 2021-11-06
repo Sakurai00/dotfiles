@@ -22,7 +22,7 @@
 ---
 ## Installation
 ```bash
-bash -c "$(curl -L raw.github.com/Sakurai00/dotfiles/master/init.sh)
+bash -c "$(curl -L raw.github.com/Sakurai00/dotfiles/master/init.sh)"
 ```
 
 or
