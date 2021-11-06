@@ -40,7 +40,7 @@ chsh -s $(which zsh)
 
 zsh
 tmux
-C+q i
+C+q I
 ```
 
 ---
