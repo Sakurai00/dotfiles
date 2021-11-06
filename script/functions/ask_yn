@@ -1,10 +1,10 @@
 #!/bin/bash
 
 while true; do
-    read -p "$1 " yn
+    read -rp "$1 " yn
     case $yn in
-        [Yy]* ) return 0;;
-        [Nn]* ) return 1;;
+        [Yy]* ) exit 0;;
+        [Nn]* ) exit 1;;
         * ) continue;;
     esac
 done
