@@ -1,16 +1,29 @@
 #!/bin/bash -x
-# Requires: Git, Rust
+# Requires: Git, Rust, python
 echo_module_name alacritty
 
+# Install Requirements
+if ! (is_exist "git"); then
+    ./script/installer/utility.sh
+elif ! (is_exist "rustup"); then
+    ./script/installer/rust.sh
+elif ! (is_exist "python3"); then
+    ./script/installer/python.sh
+fi
+
+# Install Alacritty
 if [ ! -d "$HOME/alacritty" ]; then
     git clone https://github.com/alacritty/alacritty.git "$HOME/alacritty"
+    cd "$HOME/alacritty" || exit
+else
+    cd "$HOME/alacritty" || exit
+    git pull
 fi
-cd "$HOME/alacritty" || exit
 
 rustup override set stable
 rustup update stable
 
-sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev
 
 cargo build --release
 

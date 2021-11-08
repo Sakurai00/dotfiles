@@ -4,9 +4,12 @@ echo_module_name anyenv
 # Install anyenv
 if [ ! -d "$HOME/.anyenv" ]; then
     git clone https://github.com/anyenv/anyenv "$HOME/.anyenv"
+else
+    cd "$HOME/.anyenv" || exit
+    git pull
 fi
 
-source "$HOME/.zshenv"
+source "$DOTDIR/.zshenv"
 
 "$HOME/.anyenv/bin/anyenv" init
 anyenv install --init
@@ -18,4 +21,7 @@ fi
 
 if [ ! -d "$(anyenv root)/plugins/anyenv-update" ]; then
     git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
+else
+    cd "$(anyenv root)/plugins/anyenv-update" || exit
+    git pull
 fi

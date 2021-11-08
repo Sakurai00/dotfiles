@@ -1,6 +1,7 @@
 #!/bin/bash -x
 echo_module_name Docker
 
+# Install Docker
 sudo apt install -y \
     apt-transport-https \
     ca-certificates \

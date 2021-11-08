@@ -1,5 +1,5 @@
 #!/bin/bash -x
-echo_module_name rust
+echo_module_name Rust
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

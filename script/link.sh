@@ -5,6 +5,7 @@ ln -sf "$DOTDIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTDIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTDIR/.alacritty.yml" "$HOME/.alacritty.yml"
 
+# Link zsh
 if [ ! -d "$HOME/.zsh" ]; then
     mkdir "$HOME/.zsh"
 fi
@@ -15,6 +16,7 @@ ln -sf "$DOTDIR/.zsh/plugin.zsh" "$HOME/.zsh/plugin.zsh"
 ln -sf "$DOTDIR/.zsh/p10k.zsh" "$HOME/.zsh/p10k.zsh"
 ln -sf "$DOTDIR/.zsh/.dircolors" "$HOME/.zsh/.dircolors"
 
+# Link vim
 if [ ! -d "$HOME/.config/nvim" ]; then
     mkdir "$HOME/.config/nvim"
 fi

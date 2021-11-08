@@ -1,10 +1,14 @@
 #!/bin/bash -x
-# Requires: git, anyenv
+# Requires: anyenv
 echo_module_name python
+
+# Install Requirements
+if ! (is_exist "anyenv"); then
+    ./script/installer/anyenv.sh
+fi
 
 # Install pyenv
 anyenv install pyenv
-
 eval "$(anyenv init -)"
 
 # Install Python

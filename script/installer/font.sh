@@ -1,7 +1,9 @@
 #!/bin/bash -x
 echo_module_name fonts
 
-sudo apt install -y gnome-font-viewer
+if ! (is_WSL); then
+    sudo apt install -y gnome-font-viewer
+fi
 
 export FONT_DIR="$HOME/.local/share/fonts"
 export SOURCE_DIR="$DOTDIR/fonts"
