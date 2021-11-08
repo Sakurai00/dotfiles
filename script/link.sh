@@ -1,4 +1,5 @@
-#!/bin/bash -x
+#!/bin/bash
+source "$DOTDIR/script/set_path.sh" && set -x
 
 sudo ln -sf "$DOTDIR/apt-fast.conf" "/etc/apt-fast.conf"
 ln -sf "$DOTDIR/.tmux.conf" "$HOME/.tmux.conf"
@@ -10,11 +11,11 @@ if [ ! -d "$HOME/.zsh" ]; then
     mkdir "$HOME/.zsh"
 fi
 ln -sf "$DOTDIR/.zsh/.zshenv" "$HOME/.zshenv"
-ln -sf "$DOTDIR/.zsh/.zshrc" "$HOME/.zsh/.zshrc"
-ln -sf "$DOTDIR/.zsh/alias.zsh" "$HOME/.zsh/alias.zsh"
-ln -sf "$DOTDIR/.zsh/plugin.zsh" "$HOME/.zsh/plugin.zsh"
-ln -sf "$DOTDIR/.zsh/p10k.zsh" "$HOME/.zsh/p10k.zsh"
-ln -sf "$DOTDIR/.zsh/.dircolors" "$HOME/.zsh/.dircolors"
+ln -sf "$DOTDIR/.zsh/.zshrc" "$ZDOTDIR/.zshrc"
+ln -sf "$DOTDIR/.zsh/alias.zsh" "$ZDOTDIR/alias.zsh"
+ln -sf "$DOTDIR/.zsh/plugin.zsh" "$ZDOTDIR/plugin.zsh"
+ln -sf "$DOTDIR/.zsh/p10k.zsh" "$ZDOTDIR/p10k.zsh"
+ln -sf "$DOTDIR/.zsh/.dircolors" "$ZDOTDIR/.dircolors"
 
 # Link vim
 if [ ! -d "$HOME/.config/nvim" ]; then

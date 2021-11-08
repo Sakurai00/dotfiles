@@ -8,12 +8,10 @@ fi
 
 if [ ! -d "$HOME/dotfiles" ]; then
     git clone https://github.com/Sakurai00/dotfiles.git "$HOME/dotfiles"
+    cd "$HOME/dotfiles" || exit
 else
     cd "$HOME/dotfiles" || exit
     git pull
 fi
 
-source "$HOME/dotfiles/script/set_path.sh"
-
-"$DOTDIR/script/install.sh"
-"$DOTDIR/script/link.sh"
+make install

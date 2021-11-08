@@ -1,13 +1,12 @@
 #!/bin/bash -x
-echo_module_name utillity
 
+function install_utillity() {
+    echo_module_name utillity
 
-sudo apt install -y curl
+    # Install utils
+    sudo apt install -y curl wget git
 
-sudo apt install -y wget
+    sudo apt install -y unzip
 
-sudo apt install -y git
-
-sudo apt install -y unzip
-
-sudo apt install -y neofetch
+    sudo apt install -y neofetch
+}

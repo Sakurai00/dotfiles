@@ -1,48 +1,49 @@
-#!/bin/bash -x
+#!/bin/bash
+source "$DOTDIR/script/set_path.sh" && set -x
 cd "$DOTDIR" || exit
 
 sudo apt update
 
-./script/installer/utility.sh
+install_utillity
 
-./script/installer/apt-fast.sh
+install_apt-fast
 
-./script/installer/font.sh
+install_font
 
-./script/installer/c-cpp.sh
+install_c-cpp
 
-./script/installer/anyenv.sh
+install_anyenv
 
-./script/installer/python.sh
+install_python
 
-./script/installer/rust.sh
+install_rust
 
-./script/installer/go.sh
+install_go
 
-./script/installer/lazygit.sh
+install_lazygit
 
-./script/installer/zsh.sh
+install_zsh
 
-./script/installer/neovim.sh
+install_vim
 
-./script/installer/tmux.sh
+install_tmux
 
 if (ask_yn "Install Docker? (y/n)"); then
-    ./script/installer/docker.sh
+    install_docker
 fi
 
 if (ask_yn "Install Ruby? (y/n)"); then
-    ./script/installer/ruby.sh
+    install_ruby
 fi
 
-#./script/installer/node.sh
+# install_node
 
 if ! (is_WSL); then
     if (ask_yn "Install alacritty? (y/n)"); then
-        ./script/installer/alacritty.sh
+        install_alacritty
     fi
 
     if (ask_yn "Install vscode? (y/n)"); then
-        ./script/installer/vscode.sh
+        install_vscode
     fi
 fi
