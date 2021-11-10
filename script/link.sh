@@ -1,4 +1,5 @@
 #!/bin/bash
+export DOTDIR="$HOME/dotfiles"
 source "$DOTDIR/script/set_path.sh" && set -x
 
 sudo ln -sf "$DOTDIR/apt-fast.conf" "/etc/apt-fast.conf"

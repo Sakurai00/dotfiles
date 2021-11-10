@@ -1,4 +1,6 @@
 #!/bin/bash
+export DOTDIR="$HOME/dotfiles"
+
 source "$DOTDIR/script/set_path.sh" && set -x
 cd "$DOTDIR" || exit
 
