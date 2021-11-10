@@ -8,12 +8,14 @@ function install_rust() {
     chmod 755 "$HOME/.cargo/env"
     source "$HOME/.cargo/env"
 
-    # Install CLI Tools
-    cargo install exa
-    sudo apt install -y bat
+    # Install cargo-update
+    cargo install cargo-update
 }
 
 function update_rust() {
     # Update Rust
     rustup update
+
+    # Update cargo package
+    cargo install-update -a
 }

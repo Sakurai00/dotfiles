@@ -14,6 +14,8 @@ update_python
 
 update_rust
 
+update_cli_tools
+
 update_lazygit
 
 update_zsh

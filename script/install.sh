@@ -20,6 +20,8 @@ install_rust
 
 install_go
 
+install_cli_tools
+
 install_lazygit
 
 install_zsh
