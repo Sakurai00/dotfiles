@@ -6,11 +6,11 @@ function install_alacritty() {
 
     # Install Requirements
     if ! (is_exist "git"); then
-        ./script/installer/utility.sh
+        install_utillity
     elif ! (is_exist "rustup"); then
-        ./script/installer/rust.sh
+        install_rust
     elif ! (is_exist "python3"); then
-        ./script/installer/python.sh
+        install_python
     fi
 
     # Install Alacritty

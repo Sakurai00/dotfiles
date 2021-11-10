@@ -6,7 +6,7 @@ function install_python(){
 
     # Install Requirements
     if ! (is_exist "anyenv"); then
-        ./script/installer/anyenv.sh
+        install_anyenv
     fi
 
     # Install pyenv

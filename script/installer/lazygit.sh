@@ -6,7 +6,7 @@ function install_lazygit() {
 
     # Install Requirements
     if ! (is_exist "go"); then
-        ./script/installer/go.sh
+        install_go
     fi
 
     # Install lazygit
