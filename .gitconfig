@@ -8,6 +8,7 @@
 	editor = vim
 	quotepath = false # 日本語ファイルの文字化け防止
 	ignorecase = false # ファイルの大文字小文字を区別する
+	pager = delta
 [push]
 	default = current
 [pull]
@@ -23,3 +24,8 @@
 	logl = log --date=format:'%Y/%m/%d %H:%M:%S' --pretty=format:'%C(green)%h %C(reset)%cd %C(blue)%cn %C(red)%d %C(reset)%s'
 	branch-clean = !git branch --merged | egrep -v '\\*|master|main' | xargs git branch -d ; git fetch --prune
     alias = !git config --get-regexp 'alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+
+[delta]
+    line-numbers = true
+	side-by-side = true
+	diff-so-fancy=true

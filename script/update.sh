@@ -1,11 +1,27 @@
-#!/bin/bash -x
+#!/bin/bash
+source "$DOTDIR/script/set_path.sh" && set -x
+cd "$DOTDIR" || exit
 
 sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 
-zinit self-update
+update_c-cpp
 
-zinit update --all
+update_anyenv
 
-anyenv update
+update_python
+
+update_rust
+
+update_cli_tools
+
+update_lazygit
+
+update_zsh
+
+update_vim
+
+update_tmux
+
+cd "$DOTDIR" || exit
