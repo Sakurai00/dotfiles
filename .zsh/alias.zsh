@@ -29,3 +29,7 @@ fi
 if type lazygit > /dev/null 2>&1; then
     alias lg="lazygit"
 fi
+
+if type git > /dev/null 2>&1; then
+    alias g="git"
+fi
