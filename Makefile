@@ -1,4 +1,5 @@
 install:
+	-./script/link.sh
 	-./script/install.sh
 
 link:
