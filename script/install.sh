@@ -1,7 +1,5 @@
 #!/bin/bash
-export DOTDIR="$HOME/dotfiles"
-
-source "$DOTDIR/script/set_path.sh" && set -x
+source "$HOME/dotfiles/script/set_path.sh" && set -x
 cd "$DOTDIR" || exit
 
 sudo apt update
