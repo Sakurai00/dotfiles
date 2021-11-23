@@ -11,7 +11,7 @@ function install_anyenv() {
         git pull
     fi
 
-    source "$DOTDIR/.zshenv"
+    source "$DOTDIR/.zsh/.zshenv"
 
     "$HOME/.anyenv/bin/anyenv" init
     anyenv install --init
