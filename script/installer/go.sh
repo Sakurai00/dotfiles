@@ -1,12 +1,24 @@
 #!/bin/bash -x
+# Requires: anyenv
 
 function install_go() {
     echo_module_name Go
 
-    # Install Go
-    wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-    sudo tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
-    rm ./go1.17.3.linux-amd64.tar.gz
+    # Install Requirements
+    if ! (is_exist "anyenv"); then
+        install_anyenv
+    fi
 
-    source "$DOTDIR/.zshenv"
+    # Install goenv
+    anyenv install goenv
+    eval "$(anyenv init -)"
+
+    # Install Go
+    goenv install 1.18.3
+    goenv global 1.18.3
+}
+
+function update_go(){
+    # Update goenv
+    update_anyenv
 }
