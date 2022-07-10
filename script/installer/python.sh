@@ -14,8 +14,8 @@ function install_python(){
     eval "$(anyenv init -)"
 
     # Install Python
-    pyenv install 3.9.5
-    pyenv global 3.9.5
+    pyenv install 3.9.13
+    pyenv global 3.9.13
 
     # Install pip
     sudo apt install -y python3-pip
