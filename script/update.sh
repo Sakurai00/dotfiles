@@ -18,8 +18,6 @@ update_go
 
 update_cli_tools
 
-update_lazygit
-
 update_zsh
 
 update_vim
