@@ -66,7 +66,7 @@ C+q I
   - C/C++
   - Python (pyenv, poetry)
   - Rust
-  - Go
+  - Go (goenv)
   - Ruby (rbenv)
 
 - Font
@@ -74,7 +74,7 @@ C+q I
   - Source han code JP
   - PlemolJP NF
 
-- other
+- Other
   - Docker
 
 ---
