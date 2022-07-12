@@ -3,11 +3,6 @@ export ZDOTDIR="$HOME/.zsh"
 export PATH="$DOTDIR/script/functions:$PATH"
 
 
-if [ -d "$HOME/.nvm" ] ; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-fi
-
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi

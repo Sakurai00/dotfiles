@@ -36,8 +36,6 @@ if (ask_yn "Install Ruby? (y/n)"); then
     install_ruby
 fi
 
-# install_node
-
 if ! (is_WSL); then
     if (ask_yn "Install alacritty? (y/n)"); then
         install_alacritty
