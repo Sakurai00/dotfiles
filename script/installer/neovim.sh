@@ -1,8 +1,6 @@
 #!/bin/bash -x
 
 function install_vim() {
-    echo_module_name vim
-
     # Install vim/neovim
     sudo apt install -y vim neovim
 

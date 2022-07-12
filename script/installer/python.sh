@@ -2,8 +2,6 @@
 # Requires: anyenv
 
 function install_python(){
-    echo_module_name python
-
     # Install Requirements
     if ! (is_exist "anyenv"); then
         install_anyenv

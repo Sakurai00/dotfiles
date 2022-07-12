@@ -1,8 +1,6 @@
 #!/bin/bash -x
 
 function install_node() {
-    echo_module_name node
-
     # Install node
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 

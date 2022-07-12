@@ -1,8 +1,6 @@
 #!/bin/bash -x
 
 function install_font() {
-    echo_module_name fonts
-
     if ! (is_WSL); then
         sudo apt install -y gnome-font-viewer
     fi

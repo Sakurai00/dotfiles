@@ -1,7 +1,0 @@
-#!/bin/bash
-
-name=$1
-ESC=$(printf '\033')
-printf "\n\n"
-echo "====== ${ESC}[1;97;49m ${name} ${ESC}[m ======"
-printf "\n"

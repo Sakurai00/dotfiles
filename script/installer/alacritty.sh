@@ -2,8 +2,6 @@
 # Requires: Git, Rust, python
 
 function install_alacritty() {
-    echo_module_name alacritty
-
     # Install Requirements
     if ! (is_exist "git"); then
         install_utillity

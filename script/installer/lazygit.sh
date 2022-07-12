@@ -2,8 +2,6 @@
 # Requires: Go
 
 function install_lazygit() {
-    echo_module_name lazygit
-
     # Install Requirements
     if ! (is_exist "go"); then
         install_go

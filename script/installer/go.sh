@@ -2,8 +2,6 @@
 # Requires: anyenv
 
 function install_go() {
-    echo_module_name Go
-
     # Install Requirements
     if ! (is_exist "anyenv"); then
         install_anyenv

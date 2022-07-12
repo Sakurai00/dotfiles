@@ -1,8 +1,6 @@
 #!/bin/bash -x
 
 function install_anyenv() {
-    echo_module_name anyenv
-
     # Install anyenv
     if [ ! -d "$HOME/.anyenv" ]; then
         git clone https://github.com/anyenv/anyenv "$HOME/.anyenv"

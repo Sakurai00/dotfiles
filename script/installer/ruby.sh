@@ -2,8 +2,6 @@
 # Requires: anyenv
 
 function install_ruby() {
-    echo_module_name Ruby
-
     # Install Requirements
     if ! (is_exist "anyenv"); then
         install_anyenv

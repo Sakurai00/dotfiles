@@ -2,8 +2,6 @@
 # Requires: Rust
 
 function install_cli_tools() {
-    echo_module_name cli_tools
-
     # Install Requirements
     if ! (is_exist "rustup"); then
         install_rust

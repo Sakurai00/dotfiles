@@ -1,8 +1,6 @@
 #!/bin/bash -x
 
 function install_docker() {
-    echo_module_name Docker
-
     # Install Docker
     sudo apt install -y \
         apt-transport-https \
