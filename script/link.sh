@@ -20,7 +20,7 @@ ln -sf "$DOTDIR/.zsh/.dircolors" "$ZDOTDIR/.dircolors"
 
 # Link vim
 if [ ! -d "$HOME/.config/nvim" ]; then
-    mkdir "$HOME/.config/nvim"
+    mkdir -p "$HOME/.config/nvim"
 fi
 ln -sf "$DOTDIR/.nvim/init.vim" "$HOME/.config/nvim/init.vim"
 ln -sf "$DOTDIR/.nvim/dein.toml" "$HOME/.config/nvim/dein.toml"
