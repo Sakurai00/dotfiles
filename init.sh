@@ -14,4 +14,9 @@ else
     git pull
 fi
 
+if ! type make >/dev/null 2>&1; then
+    sudo apt install -y make
+fi
+
+
 make install
