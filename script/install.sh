@@ -12,13 +12,7 @@ install_font
 
 install_c-cpp
 
-install_anyenv
-
-install_python
-
 install_rust
-
-install_go
 
 install_cli_tools
 
@@ -28,12 +22,24 @@ install_vim
 
 install_tmux
 
-if (ask_yn "Install Docker? (y/n)"); then
-    install_docker
+if (ask_yn "Install anyenv? (y/n)"); then
+    install_anyenv
+
+    if (ask_yn "Install Python? (y/n)"); then
+        install_python
+    fi
+
+    if (ask_yn "Install Go? (y/n)"); then
+        install_go
+    fi
+
+    if (ask_yn "Install Ruby? (y/n)"); then
+        install_ruby
+    fi
 fi
 
-if (ask_yn "Install Ruby? (y/n)"); then
-    install_ruby
+if (ask_yn "Install Docker? (y/n)"); then
+    install_docker
 fi
 
 if ! (is_WSL); then
