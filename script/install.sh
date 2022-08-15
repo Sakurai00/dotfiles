@@ -4,9 +4,9 @@ cd "$DOTDIR" || exit
 
 sudo apt update
 
-install_utillity
-
 install_apt-fast
+
+install_utillity
 
 install_font
 

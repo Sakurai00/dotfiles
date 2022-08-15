@@ -7,4 +7,6 @@ function install_utillity() {
     sudo apt install -y unzip
 
     sudo apt install -y neofetch
+
+    sudo apt install -y snapd
 }
