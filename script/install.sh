@@ -22,19 +22,22 @@ install_vim
 
 install_tmux
 
-if (ask_yn "Install anyenv? (y/n)"); then
-    install_anyenv
-
-    if (ask_yn "Install Python? (y/n)"); then
-        install_python
-    fi
+if (ask_yn "Install Languages? (y/n)"); then
 
     if (ask_yn "Install Go? (y/n)"); then
         install_go
     fi
 
-    if (ask_yn "Install Ruby? (y/n)"); then
-        install_ruby
+    if (ask_yn "Install anyenv for Python, Ruby? (y/n)"); then
+        install_anyenv
+
+        if (ask_yn "Install Python? (y/n)"); then
+            install_python
+        fi
+
+        if (ask_yn "Install Ruby? (y/n)"); then
+            install_ruby
+        fi
     fi
 fi
 
