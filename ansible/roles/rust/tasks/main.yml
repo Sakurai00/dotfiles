@@ -17,6 +17,10 @@
     when: cargo_exists is failed
     shell: /tmp/sh.rustup.rs -y
 
+  - name: Update Rust
+    when: cargo_exists is success
+    shell: rustup update
+
   - name: Install "cargo-update"
     community.general.cargo:
       name: cargo-update
