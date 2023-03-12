@@ -1,0 +1,13 @@
+---
+
+- name: Install exa
+  community.general.cargo:
+    name: exa
+
+- name: Install git-delta
+  community.general.cargo:
+    name: git-delta
+
+- name: Install bat
+  ansible.builtin.apt:
+    name: bat
