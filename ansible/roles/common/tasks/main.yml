@@ -4,6 +4,8 @@
   become: yes
   ansible.builtin.apt:
     update_cache: true
+    upgrade: yes
+    state: latest
 
 - name: Install common packages
   become: yes
@@ -13,6 +15,7 @@
       - wget
       - git
       - snapd
+    state: latest
 
 - name: Link .gitconfig
   ansible.builtin.file:

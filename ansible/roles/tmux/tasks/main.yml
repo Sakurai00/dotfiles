@@ -3,6 +3,7 @@
 - name: Install tmux
   ansible.builtin.apt:
     name: tmux
+    state: latest
 
 - name: Create ~/.tmux/plugins/tpm
   ansible.builtin.file:

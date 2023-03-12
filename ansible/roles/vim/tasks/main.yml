@@ -4,6 +4,7 @@
   become: yes
   ansible.builtin.apt:
     name: vim
+    state: latest
 
 - name: Install neovim
   become: yes
