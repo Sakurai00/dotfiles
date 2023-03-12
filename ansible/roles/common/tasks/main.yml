@@ -7,7 +7,7 @@
 
 - name: Install common packages
   ansible.builtin.apt:
-    pkg:
+    name:
       - curl
       - wget
       - git
