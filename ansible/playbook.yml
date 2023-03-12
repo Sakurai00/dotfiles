@@ -8,11 +8,14 @@
 
   roles:
     - role: common
+      tags: common
     - role: cli_tools
     - role: zsh
       tags: zsh
     - role: tmux
       tags: tmux
+    - role: vim
+      tags: vim
 
     - role: rust
       tags: rust
