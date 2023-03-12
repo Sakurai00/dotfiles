@@ -23,6 +23,6 @@
   loop:
     - .zshrc
     - alias.zsh
-    - p10k.zsh
     - plugin.zsh
+    - plugin.p10k.zsh
     - .dircolors
