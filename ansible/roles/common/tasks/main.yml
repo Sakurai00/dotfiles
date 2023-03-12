@@ -15,6 +15,7 @@
       - wget
       - git
       - snapd
+      - libgit2-dev
     state: latest
 
 - name: Link .gitconfig
