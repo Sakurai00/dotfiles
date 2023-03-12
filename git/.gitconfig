@@ -9,12 +9,19 @@
 	quotepath = false # 日本語ファイルの文字化け防止
 	ignorecase = false # ファイルの大文字小文字を区別する
 	pager = delta
+[init]
+	defaultBranch = master
 [push]
-	default = current
+	default = upstream
 [pull]
 	ff = only
 [merge]
 	ff = false
+[fetch]
+    prune = true
+[rebase]
+    autostash = true
+	autosquash = true
 [credential]
 	helper = cache
 [alias]
