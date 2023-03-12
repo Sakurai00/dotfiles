@@ -1,15 +1,21 @@
 ---
 
 - name: Update apt packages
+  become: yes
   ansible.builtin.apt:
     update_cache: true
-  become: yes
 
 - name: Install common packages
+  become: yes
   ansible.builtin.apt:
     name:
       - curl
       - wget
       - git
       - snapd
-  become: yes
+
+- name: Link .gitconfig
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/git/.gitconfig"
+    dest: "{{ home }}/.gitconfig"
+    state: link
