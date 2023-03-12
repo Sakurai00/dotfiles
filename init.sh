@@ -14,9 +14,9 @@ else
     git pull
 fi
 
-if ! type make >/dev/null 2>&1; then
-    sudo apt install -y make
+if ! type ansible >/dev/null 2>&1; then
+    sudo apt install -y ansible
 fi
 
 
-make install
+ansible-playbook ./ansible/playbook.yml
