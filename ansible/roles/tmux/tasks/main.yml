@@ -1,0 +1,15 @@
+---
+
+- name: Install tmux
+  ansible.builtin.apt:
+    name: tmux
+
+- name: Create ~/.tmux/plugins/tpm
+  ansible.builtin.file:
+    path: "{{ home }}/.tmux/plugins/tpm"
+    state: directory
+
+- name: Clone tpm
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ home }}/.tmux/plugins/tpm"

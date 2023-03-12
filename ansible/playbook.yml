@@ -11,5 +11,8 @@
     - role: cli_tools
     - role: zsh
       tags: zsh
+    - role: tmux
+      tags: tmux
+
     - role: rust
       tags: rust
