@@ -7,7 +7,7 @@ if ! type git >/dev/null 2>&1; then
 fi
 
 if [ ! -d "$HOME/dotfiles" ]; then
-    git clone https://github.com/Sakurai00/dotfiles.git "$HOME/dotfiles"
+    git clone -b Ansible https://github.com/Sakurai00/dotfiles.git "$HOME/dotfiles"
     cd "$HOME/dotfiles" || exit
 else
     cd "$HOME/dotfiles" || exit
