@@ -1,0 +1,15 @@
+---
+
+- name: Update apt packages
+  ansible.builtin.apt:
+    update_cache: true
+  become: yes
+
+- name: Install common packages
+  ansible.builtin.apt:
+    pkg:
+      - curl
+      - wget
+      - git
+      - snapd
+  become: yes
