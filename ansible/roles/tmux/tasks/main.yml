@@ -13,3 +13,9 @@
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ home }}/.tmux/plugins/tpm"
+
+- name: Link .tmux.conf
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/tmux/.tmux.conf"
+    dest: "{{ home }}/.tmux.conf"
+    state: link
