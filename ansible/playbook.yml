@@ -25,5 +25,10 @@
         - neovim
         - normal
 
+    - role: C
+      tags:
+        - C
+        - extra
+
     - role: rust
       tags: rust
