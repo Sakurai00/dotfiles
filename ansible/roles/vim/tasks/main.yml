@@ -1,27 +1,7 @@
 ---
 
 - name: Install vim
-  become: yes
+  become: true
   ansible.builtin.apt:
     name: vim
     state: latest
-
-- name: Install neovim
-  become: yes
-  ansible.builtin.apt:
-    deb: https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-    force: true
-
-- name: Create ~/.config/nvim
-  ansible.builtin.file:
-    path: "{{ home }}/.config/nvim"
-    state: directory
-
-- name: Link neovim configs
-  ansible.builtin.file:
-    src: "{{ dotfiles }}/neovim/{{ item }}"
-    dest: "{{ home }}/.config/nvim/{{ item }}"
-    state: link
-  loop:
-    - init.vim
-    - dein.toml

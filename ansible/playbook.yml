@@ -15,7 +15,15 @@
     - role: tmux
       tags: tmux
     - role: vim
-      tags: vim
+      tags:
+        - vim
+        - minimum
+        - normal
+
+    - rule: neovim
+      tags:
+        - neovim
+        - normal
 
     - role: rust
       tags: rust
