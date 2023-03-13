@@ -8,12 +8,28 @@
 
   roles:
     - role: common
-      tags: common
+      tags:
+        - common
+        - minimum
+        - normal
+
     - role: cli_tools
+      tags:
+        - cli_tools
+        - normal
+
     - role: zsh
-      tags: zsh
+      tags:
+        - zsh
+        - minimum
+        - normal
+
     - role: tmux
-      tags: tmux
+      tags:
+        - tmux
+        - minimum
+        - normal
+
     - role: vim
       tags:
         - vim
@@ -31,4 +47,6 @@
         - extra
 
     - role: rust
-      tags: rust
+      tags:
+        - rust
+        - extra
