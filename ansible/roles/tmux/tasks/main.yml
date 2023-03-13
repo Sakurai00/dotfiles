@@ -9,6 +9,7 @@
   ansible.builtin.file:
     path: "{{ home }}/.tmux/plugins/tpm"
     state: directory
+    mode: '0755'
 
 - name: Clone tpm
   ansible.builtin.git:

@@ -1,14 +1,14 @@
 ---
 
 - name: Update apt packages
-  become: yes
+  become: true
   ansible.builtin.apt:
     update_cache: true
-    upgrade: yes
+    upgrade: true
     state: latest
 
 - name: Install common packages
-  become: yes
+  become: true
   ansible.builtin.apt:
     name:
       - curl
