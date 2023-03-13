@@ -19,4 +19,4 @@ if ! type ansible >/dev/null 2>&1; then
 fi
 
 
-ansible-playbook ./ansible/playbook.yml
+ansible-playbook ./ansible/playbook.yml -K -t normal
