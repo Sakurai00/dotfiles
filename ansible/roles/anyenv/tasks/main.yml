@@ -1,0 +1,27 @@
+---
+
+# ====== anyenv ======
+
+- name: Clone anyenv
+  ansible.builtin.git:
+    repo: https://github.com/anyenv/anyenv
+    dest: "{{ home }}/.anyenv"
+
+# - name: Initialize install manifest directory
+#   ansible.builtin.shell:
+#     "anyenv install --init"
+#   environment:
+#     PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"
+
+# ====== anyenv-update ======
+
+- name: Create ~/.anyenv/plugins
+  ansible.builtin.file:
+    path: "{{ home }}/.anyenv/plugins"
+    state: directory
+    mode: '0755'
+
+- name: Clone anyenv-update
+  ansible.builtin.git:
+    repo: https://github.com/znz/anyenv-update
+    dest: "{{ home }}/.anyenv/plugins/anyenv-update"

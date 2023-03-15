@@ -50,3 +50,8 @@
       tags:
         - rust
         - extra
+
+    - role: anyenv
+      tags:
+        - anyenv
+        - extra
