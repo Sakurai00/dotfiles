@@ -36,7 +36,7 @@
         - minimum
         - normal
 
-    - rule: neovim
+    - role: neovim
       tags:
         - neovim
         - normal
