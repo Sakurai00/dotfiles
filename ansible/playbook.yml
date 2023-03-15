@@ -55,3 +55,8 @@
       tags:
         - anyenv
         - extra
+
+    - role: python
+      tags:
+        - python
+        - extra

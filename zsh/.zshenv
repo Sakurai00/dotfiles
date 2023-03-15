@@ -23,6 +23,6 @@ if [ -d "$HOME/.cargo" ] ; then
 fi
 . "$HOME/.cargo/env"
 
-if [ -d "$HOME/.poetry" ] ; then
-    source "$HOME/.poetry/env"
-fi
+# if [ -d "$HOME/.poetry" ] ; then
+#     source "$HOME/.poetry/env"
+# fi
