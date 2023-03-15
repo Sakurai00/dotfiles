@@ -60,3 +60,7 @@
       tags:
         - python
         - extra
+
+    - role: go
+      tags:
+        - go
