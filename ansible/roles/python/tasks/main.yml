@@ -4,7 +4,7 @@
 
 - name: Check if pyenv is installed
   ansible.builtin.shell:
-    "pyenv -v"
+    "pyenv --version"
   register: pyenv_exists
   ignore_errors: true
 
@@ -22,27 +22,27 @@
 
 # ====== python ======
 
-- name: Check if python is installed
+- name: Check if python {{ python_version }} is installed
   ansible.builtin.shell:
-    "python3 -V"
+    "pyenv versions | grep {{ python_version }}"
   register: python_exists
   ignore_errors: true
 
-- name: Install python
+- name: Install python {{ python_version }}
   when: python_exists is failed
   ansible.builtin.shell:
-    "pyenv install 3.11.2"
+    "pyenv install {{ python_version }}"
 
 - name: Set global version
   when: python_exists is failed
   ansible.builtin.shell:
-    "pyenv global 3.11.2"
+    "pyenv global {{ python_version }}"
 
-- name: Install pip3
-  become: true
-  ansible.builtin.apt:
-    name: python3-pip
-    state: latest
+# - name: Install pip3
+#   become: true
+#   ansible.builtin.apt:
+#     name: python3-pip
+#     state: latest
 
 # ====== poetry ======
 
