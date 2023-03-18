@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - anyenv
+  - role: anyenv
