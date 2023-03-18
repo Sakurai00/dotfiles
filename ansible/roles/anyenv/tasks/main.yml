@@ -2,10 +2,11 @@
 
 # ====== anyenv ======
 
-- name: Clone anyenv
+- name: Clone anyenv {{ anyenv_version }}
   ansible.builtin.git:
     repo: https://github.com/anyenv/anyenv
     dest: "{{ home }}/.anyenv"
+    version: "{{ anyenv_version }}"
 
 # - name: Initialize install manifest directory
 #   ansible.builtin.shell:
