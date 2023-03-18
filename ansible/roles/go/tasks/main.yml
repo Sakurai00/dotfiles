@@ -4,7 +4,7 @@
 
 - name: Check if goenv is installed
   ansible.builtin.shell:
-    "goenv -v"
+    "goenv --version"
   register: goenv_exists
   ignore_errors: true
 
@@ -17,18 +17,18 @@
 
 # ====== go ======
 
-- name: Check if go is installed
+- name: Check if go {{ go_version }} is installed
   ansible.builtin.shell:
-    "go version"
+    "goenv versions | grep {{ go_version }}"
   register: go_exists
   ignore_errors: true
 
-- name: Install go
+- name: Install go {{ go_version }}
   when: go_exists is failed
   ansible.builtin.shell:
-    "goenv install 1.20.1"
+    "goenv install {{ go_version }}"
 
 - name: Set global version
   when: go_exists is failed
   ansible.builtin.shell:
-    "goenv global 1.20.1"
+    "goenv global {{ go_version }}"
