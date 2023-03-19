@@ -51,9 +51,9 @@
         - rust
         - extra
 
-    - role: anyenv
+    - role: asdf
       tags:
-        - anyenv
+        - asdf
         - extra
 
     - role: python

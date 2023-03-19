@@ -46,6 +46,7 @@ zinit wait'1' lucid as"completion" is-snippet for \
 # ====== ====== ======
 
 
-# ====== Load anyenv ======
-eval "$(anyenv init -)"
+# ====== Load asdf ======
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
 # ====== ====== ======

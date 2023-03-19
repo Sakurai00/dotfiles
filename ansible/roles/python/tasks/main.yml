@@ -1,42 +1,35 @@
 ---
 
-# ====== pyenv ======
+# ====== asdf plugin ======
 
-- name: Check if pyenv is installed
+- name: Check if asdf plugin is installed
   ansible.builtin.shell:
-    "pyenv --version"
+    "asdf plugin list | grep python"
   register: pyenv_exists
   ignore_errors: true
 
-- name: Install pyenv
+- name: Install asdf plugin
   when: pyenv_exists is failed
   ansible.builtin.shell:
-    "anyenv install pyenv"
-  environment:
-    PATH: "{{ home }}/.anyenv/bin:{{ ansible_env.PATH }}"
-
-# - name: Init anyenv
-#   when: pyenv_exists is failed
-#   ansible.builtin.shell:
-#     "eval '$(anyenv init -)'"
+    "asdf plugin add python"
 
 # ====== python ======
 
 - name: Check if python {{ python_version }} is installed
   ansible.builtin.shell:
-    "pyenv versions | grep {{ python_version }}"
+    "asdf list python | grep {{ python_version }}"
   register: python_exists
   ignore_errors: true
 
 - name: Install python {{ python_version }}
   when: python_exists is failed
   ansible.builtin.shell:
-    "pyenv install {{ python_version }}"
+    "asdf install python {{ python_version }}"
 
 - name: Set global version
   when: python_exists is failed
   ansible.builtin.shell:
-    "pyenv global {{ python_version }}"
+    "asdf global python {{ python_version }}"
 
 # - name: Install pip3
 #   become: true

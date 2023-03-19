@@ -1,0 +1,13 @@
+---
+
+# ====== asdf ======
+
+- name: Clone asdf {{ asdf_version }}
+  ansible.builtin.git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ home }}/.asdf"
+    version: "{{ asdf_version }}"
+
+- name: Run init script
+  ansible.builtin.script:
+    "{{ home }}/.asdf/asdf.sh"
