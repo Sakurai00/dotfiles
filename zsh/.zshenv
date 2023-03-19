@@ -14,10 +14,6 @@ if [ -d "$HOME/.local/lib" ] ; then
     export PATH="$HOME/.local/lib:$PATH"
 fi
 
-if [ -d "$HOME/.anyenv/bin" ] ; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-fi
-
 if [ -d "$HOME/.cargo" ] ; then
     source "$HOME/.cargo/env"
 fi
