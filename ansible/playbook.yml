@@ -1,0 +1,66 @@
+---
+- name: Playbook
+  hosts: localhost
+  connection: local
+
+  vars_files:
+    - "vars/env.yml"
+
+  roles:
+    - role: common
+      tags:
+        - common
+        - minimum
+        - normal
+
+    - role: cli_tools
+      tags:
+        - cli_tools
+        - normal
+
+    - role: zsh
+      tags:
+        - zsh
+        - minimum
+        - normal
+
+    - role: tmux
+      tags:
+        - tmux
+        - minimum
+        - normal
+
+    - role: vim
+      tags:
+        - vim
+        - minimum
+        - normal
+
+    - role: neovim
+      tags:
+        - neovim
+        - normal
+
+    - role: C
+      tags:
+        - C
+        - extra
+
+    - role: rust
+      tags:
+        - rust
+        - extra
+
+    - role: asdf
+      tags:
+        - asdf
+        - extra
+
+    - role: python
+      tags:
+        - python
+        - extra
+
+    - role: go
+      tags:
+        - go

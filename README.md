@@ -10,8 +10,7 @@
   - [ScreenShot](#screenshot)
   - [Components](#components)
   - [Tree](#tree)
-  - [Commands & Key Config](#commands--key-config)
-    - [make](#make)
+  - [Commands \& Key Config](#commands--key-config)
     - [shell command](#shell-command)
     - [git](#git)
     - [tmux](#tmux)
@@ -24,16 +23,6 @@
 ```bash
 bash -c "$(curl -L raw.github.com/Sakurai00/dotfiles/master/init.sh)"
 ```
-
-or
-
-```bash
-git clone https://github.com/Sakurai00/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-make install
-```
-
-and
 
 ```bash
 chsh -s $(which zsh)
@@ -50,7 +39,6 @@ C+q I
 ---
 ## Components
 - Terminal
-  - alacritty (ayu mirage)
   - tmux
 
 - Shell
@@ -60,86 +48,93 @@ C+q I
 - Editor
   - neovim (ayu mirage)
     - dein.vim
-  - vscode
 
 - Lang
   - C/C++
-  - Python (pyenv, poetry)
+  - Python (asdf, poetry)
   - Rust
-  - Go (goenv)
-  - Ruby (rbenv)
-
-- Font
-  - MesloLGS NF
-  - Source han code JP
-  - PlemolJP NF
-
-- Other
-  - Docker
+  - Go (asdf)
 
 ---
 ## Tree
 ```bash
 .
-├── .alacritty.yml
-├── .gitconfig
 ├── .gitignore
-├── .nvim
+├── Alacritty
+│  └── .alacritty.yml
+├── ansible
+│  ├── playbook.yml
+│  ├── roles
+│  │  ├── asdf
+│  │  │  ├── defaults
+│  │  │  │  └── main.yml
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── C
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── cli_tools
+│  │  │  ├── meta
+│  │  │  │  └── main.yml
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── common
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── go
+│  │  │  ├── defaults
+│  │  │  │  └── main.yml
+│  │  │  ├── meta
+│  │  │  │  └── main.yml
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── neovim
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── python
+│  │  │  ├── defaults
+│  │  │  │  └── main.yml
+│  │  │  ├── meta
+│  │  │  │  └── main.yml
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── rust
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── tmux
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  ├── vim
+│  │  │  └── tasks
+│  │  │     └── main.yml
+│  │  └── zsh
+│  │     └── tasks
+│  │        └── main.yml
+│  ├── test.yml
+│  └── vars
+│     └── env.yml
+├── apt-fast
+│  └── apt-fast.conf
+├── git
+│  └── .gitconfig
+├── init.sh
+├── neovim
 │  ├── dein.toml
 │  └── init.vim
-├── .tmux.conf
-├── .zsh
-│  ├── .dircolors
-│  ├── .zshenv
-│  ├── .zshrc
-│  ├── alias.zsh
-│  ├── p10k.zsh
-│  └── plugin.zsh
-├── init.sh
-├── Makefile
 ├── README.md
-└── script
-   ├── chmodx.sh
-   ├── functions
-   │  ├── ask_yn
-   │  ├── echo_module_name
-   │  ├── get_osd
-   │  ├── is_exist
-   │  └── is_WSL
-   ├── install.sh
-   ├── installer
-   │  ├── alacritty.sh
-   │  ├── anyenv.sh
-   │  ├── c-cpp.sh
-   │  ├── docker.sh
-   │  ├── font.sh
-   │  ├── go.sh
-   │  ├── lazygit.sh
-   │  ├── neovim.sh
-   │  ├── node.sh
-   │  ├── python.sh
-   │  ├── ruby.sh
-   │  ├── rust.sh
-   │  ├── tmux.sh
-   │  ├── utility.sh
-   │  ├── vscode.sh
-   │  └── zsh.sh
-   ├── link.sh
-   ├── set_path.sh
-   ├── ubuntu.sh
-   └── update.sh
+├── tmux
+│  └── .tmux.conf
+└── zsh
+   ├── .dircolors
+   ├── .zshenv
+   ├── .zshrc
+   ├── alias.zsh
+   ├── plugin.p10k.zsh
+   └── plugin.zsh
 ```
 
 ---
 ## Commands & Key Config
-
-### make
-- make install  
-パッケージインストール
-- make link  
-シンボリックリンク作成
-- make update  
-パッケージアップデート
 
 ### shell command
 ```bash
@@ -168,6 +163,6 @@ alias cat="batcat"
 
 
 ## 参考
-https://github.com/topics/dotfiles  
-https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB  
+https://github.com/topics/dotfiles
+https://wiki.archlinux.jp/index.php/%E3%83%89%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB
 https://github.com/b4b4r07/dotfiles
