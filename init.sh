@@ -15,8 +15,7 @@ else
 fi
 
 if ! type ansible >/dev/null 2>&1; then
-    sudo apt install -y ansible
+    pip install --user ansible
 fi
 
-
-ansible-playbook ./ansible/playbook.yml -K -t normal
+ansible-playbook ./ansible/playbook.yml --ask-sudo-pass --tags normal
