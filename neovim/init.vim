@@ -1,23 +1,8 @@
-set encoding=utf-8
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-set title
-set number
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set autoindent
-
-set cursorline
-set ruler
-
-set hlsearch
-set ignorecase
-set incsearch
-
+" ====== Load vim settings ======
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc
+" ====== ====== ======
 
 " ====== dein installer ======
 if &compatible
@@ -44,8 +29,14 @@ endif
 
 set helplang=ja
 
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+
 " colorscheme {molokai, ayu}
 colorscheme ayu
+
 " if use ayu, set ayucolor {light, mirage, dark}
 let ayucolor="mirage"
 
