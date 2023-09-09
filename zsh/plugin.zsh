@@ -47,6 +47,8 @@ zinit wait'1' lucid as"completion" is-snippet for \
 
 
 # ====== Load asdf ======
-. "$HOME/.asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
+if [ -d "$HOME/.asdf" ] ; then
+  . "$HOME/.asdf/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 # ====== ====== ======
