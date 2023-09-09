@@ -2,7 +2,7 @@
 
 - name: Install exa
   community.general.cargo:
-    name: exa
+    name: eza
 
 - name: Install git-delta
   community.general.cargo:
