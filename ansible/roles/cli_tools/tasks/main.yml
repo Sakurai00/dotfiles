@@ -1,6 +1,6 @@
 ---
 
-- name: Install exa
+- name: Install eza
   community.general.cargo:
     name: eza
 
@@ -9,6 +9,5 @@
     name: git-delta
 
 - name: Install bat
-  ansible.builtin.apt:
+  community.general.cargo:
     name: bat
-    state: latest

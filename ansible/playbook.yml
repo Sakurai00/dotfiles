@@ -15,7 +15,7 @@
     - role: cli_tools
       tags:
         - cli_tools
-        - normal
+        - extra
 
     - role: zsh
       tags:
