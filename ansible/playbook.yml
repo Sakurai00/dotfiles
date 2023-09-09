@@ -11,7 +11,6 @@
       tags:
         - common
         - minimum
-        - normal
 
     - role: cli_tools
       tags:
@@ -22,19 +21,16 @@
       tags:
         - zsh
         - minimum
-        - normal
 
     - role: tmux
       tags:
         - tmux
         - minimum
-        - normal
 
     - role: vim
       tags:
         - vim
         - minimum
-        - normal
 
     - role: neovim
       tags:
@@ -64,3 +60,4 @@
     - role: go
       tags:
         - go
+        - extra

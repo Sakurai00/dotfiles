@@ -18,4 +18,4 @@ if ! type ansible >/dev/null 2>&1; then
     pip install --user ansible
 fi
 
-ansible-playbook ./ansible/playbook.yml --ask-sudo-pass --tags normal
+ansible-playbook ./ansible/playbook.yml --ask-become-pass --tags minimum,normal
