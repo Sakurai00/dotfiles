@@ -8,7 +8,7 @@ fi
 # export LANG=en_US.UTF-8
 
 # ====== Load plugin ======
-source $ZDOTDIR/plugin.zsh
+source $ZDOTDIR/plugin/plugin.zsh
 # ====== ====== ======
 
 # ====== Load alias ======
