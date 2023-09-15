@@ -22,6 +22,11 @@
         - zsh
         - minimum
 
+    - role: fzf
+      tags:
+        - fzf
+        - normal
+
     - role: tmux
       tags:
         - tmux
