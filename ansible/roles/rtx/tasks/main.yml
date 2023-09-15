@@ -1,0 +1,4 @@
+---
+
+  - name: Install rtx
+    ansible.builtin.shell: curl https://rtx.pub/install.sh | sh
