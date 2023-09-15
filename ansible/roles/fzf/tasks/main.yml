@@ -1,0 +1,16 @@
+---
+
+- name: Clone fzf
+  ansible.builtin.git:
+    repo: ttps://github.com/junegunn/fzf.git
+    dest: "{{ home }}/.fzf"
+    version: master
+
+- name: Install fzf
+  ansible.builtin.shell: $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
+
+- name: Link fzf.zsh
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/fzf/fzf.zsh"
+    dest: "{{ home }}/.zsh/plugin/fzf.zsh"
+    state: link

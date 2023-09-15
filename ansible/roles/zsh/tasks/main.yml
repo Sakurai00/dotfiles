@@ -12,6 +12,12 @@
     state: directory
     mode: '0755'
 
+- name: Create ~/.zsh/plugin
+  ansible.builtin.file:
+    path: "{{ home }}/.zsh/plugin"
+    state: directory
+    mode: '0755'
+
 - name: Link .zshenv
   ansible.builtin.file:
     src: "{{ dotfiles }}/zsh/.zshenv"
@@ -26,6 +32,13 @@
   loop:
     - .zshrc
     - alias.zsh
-    - plugin.zsh
-    - plugin.p10k.zsh
     - .dircolors
+
+- name: Link zsh plugin configs
+  ansible.builtin.file:
+    src: "{{ dotfiles }}/zsh/plugin/{{ item }}"
+    dest: "{{ home }}/.zsh/plugin/{{ item }}"
+    state: link
+  loop:
+    - plugin.zsh
+    - p10k.zsh
