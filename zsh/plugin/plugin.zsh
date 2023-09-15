@@ -52,3 +52,8 @@ if [ -d "$HOME/.asdf" ] ; then
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
 # ====== ====== ======
+
+
+# ====== Load fzf ======
+[ -f $ZDOTDIR/plugin/fzf.zsh ] && source $ZDOTDIR/plugin/fzf.zsh
+# ====== ====== ======
