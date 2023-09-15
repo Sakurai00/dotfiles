@@ -1,35 +1,20 @@
 ---
 
-# ====== asdf plugin ======
-
-- name: Check if asdf plugin is installed
-  ansible.builtin.shell:
-    "asdf plugin list | grep python"
-  register: pyenv_exists
-  ignore_errors: true
-
-- name: Install asdf plugin
-  when: pyenv_exists is failed
-  ansible.builtin.shell:
-    "asdf plugin add python"
-
-# ====== python ======
-
 - name: Check if python {{ python_version }} is installed
   ansible.builtin.shell:
-    "asdf list python | grep {{ python_version }}"
+    "rtx list python | grep {{ python_version }}"
   register: python_exists
   ignore_errors: true
 
 - name: Install python {{ python_version }}
   when: python_exists is failed
   ansible.builtin.shell:
-    "asdf install python {{ python_version }}"
+    "rtx install python@{{ python_version }}"
 
 - name: Set global version
   when: python_exists is failed
   ansible.builtin.shell:
-    "asdf global python {{ python_version }}"
+    "rtx use -g python@{{ python_version }}"
 
 # - name: Install pip3
 #   become: true

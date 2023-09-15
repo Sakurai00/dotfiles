@@ -1,32 +1,17 @@
 ---
 
-# ====== asdf plugin ======
-
-- name: Check if asdf plugin is installed
-  ansible.builtin.shell:
-    "asdf plugin list | grep golang"
-  register: goenv_exists
-  ignore_errors: true
-
-- name: Install asdf plugin
-  when: goenv_exists is failed
-  ansible.builtin.shell:
-    "asdf plugin add golang"
-
-# ====== go ======
-
 - name: Check if go {{ go_version }} is installed
   ansible.builtin.shell:
-    "asdf list golang | grep {{ go_version }}"
+    "rtx list golang | grep {{ go_version }}"
   register: go_exists
   ignore_errors: true
 
 - name: Install go {{ go_version }}
   when: go_exists is failed
   ansible.builtin.shell:
-    "asdf install golang {{ go_version }}"
+    "rtx install go@{{ go_version }}"
 
 - name: Set global version
   when: go_exists is failed
   ansible.builtin.shell:
-    "asdf global golang {{ go_version }}"
+    "rtx use -g go@{{ go_version }}"
