@@ -15,7 +15,7 @@ if [ -d "$HOME/.local/lib" ] ; then
 fi
 
 if [ -d "$HOME/.cargo" ] ; then
-    source "$HOME/.cargo/env"
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # if [ -d "$HOME/.poetry" ] ; then

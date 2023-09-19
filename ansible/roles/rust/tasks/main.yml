@@ -17,12 +17,13 @@
     when: cargo_exists is failed
     ansible.builtin.shell: /tmp/sh.rustup.rs -y
 
+  - name: Activate Rust
+    when: cargo_exists is failed
+    ansible.builtin.shell: export PATH="$HOME/.cargo/bin:$PATH"
+
   - name: Update Rust
     when: cargo_exists is success
     ansible.builtin.shell: rustup update
-
-  - name: Source .cargo/env
-    shell: source "$HOME/.cargo/env"
 
   - name: Install "cargo-update"
     community.general.cargo:
