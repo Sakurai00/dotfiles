@@ -22,27 +22,27 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # ====== ====== ======
 
 
-# ====== Load Zinit plugins ======
-# https://zdharma-continuum.github.io/zinit/wiki/Example-Minimal-Setup/
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
+# ====== Completion ======
+zinit ice blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
 
-zinit wait'1' lucid light-mode for \
-  zdharma-continuum/history-search-multi-word
-# ====== ====== ======
-
-
-# ====== Load completion ======
 zinit wait'1' lucid as"completion" is-snippet for \
   https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
   https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose \
   https://github.com/ilikenwf/apt-fast/blob/master/completions/zsh/_apt-fast \
   https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty \
+  https://github.com/jdx/rtx/blob/main/completions/_rtx \
+
+autoload -Uz compinit && compinit -C
+# ====== ====== ======
+
+
+# ====== Load Zinit plugins ======
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
 # ====== ====== ======
 
 
