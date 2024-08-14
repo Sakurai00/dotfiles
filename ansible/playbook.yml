@@ -1,11 +1,6 @@
 ---
 - name: Playbook
-  hosts: localhost
-  connection: local
-
-  vars_files:
-    - "vars/env.yml"
-
+  hosts: all
   roles:
     - role: common
       tags:
