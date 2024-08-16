@@ -14,7 +14,7 @@
 
 - name: Link neovim configs
   ansible.builtin.file:
-    src: "{{ dotfiles }}/neovim/{{ item }}"
+    src: "{{ role_path }}/files/.config/nvim/{{ item }}"
     dest: "{{ home }}/.config/nvim/{{ item }}"
     state: link
   loop:

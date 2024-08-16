@@ -14,6 +14,6 @@
 
 - name: Link .vimrc
   ansible.builtin.file:
-    src: "{{ dotfiles }}/vim/vimrc"
+    src: "{{ role_path }}/files/.vim/vimrc"
     dest: "{{ home }}/.vim/vimrc"
     state: link
