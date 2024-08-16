@@ -6,11 +6,11 @@
     dest: "{{ home }}/.fzf"
     version: master
 
-- name: Install fzf
+- name: Install & Update fzf
   ansible.builtin.shell: $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
 
 - name: Link fzf.zsh
   ansible.builtin.file:
-    src: "{{ dotfiles }}/fzf/fzf.zsh"
-    dest: "{{ home }}/.zsh/plugin/fzf.zsh"
+    src: "{{ role_path }}/files/.zsh/fzf.zsh"
+    dest: "{{ home }}/.zsh/fzf.zsh"
     state: link

@@ -1,11 +1,6 @@
 # link to $ZDOTDIR/plugin/fzf.zsh
 
 
-if [ -d "$HOME/.fzf" ] ; then
-    export PATH="$HOME/.fzf/bin:$PATH"
-fi
-
-
 # Auto-completion
 # ---------------
 [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
@@ -14,6 +9,7 @@ fi
 # Key bindings
 # ------------
 source "$HOME/.fzf/shell/key-bindings.zsh"
+source <(fzf --zsh)
 
 
 if type rg > /dev/null 2>&1; then

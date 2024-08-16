@@ -54,5 +54,5 @@ fi
 
 
 # ====== Load fzf ======
-[ -f $ZDOTDIR/plugin/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
+[ -f $ZDOTDIR/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
 # ====== ====== ======
