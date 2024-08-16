@@ -20,6 +20,6 @@
 
 - name: Link .tmux.conf
   ansible.builtin.file:
-    src: "{{ dotfiles }}/tmux/.tmux.conf"
+    src: "{{ role_path }}/files/.tmux.conf"
     dest: "{{ home }}/.tmux.conf"
     state: link
