@@ -20,7 +20,7 @@
 
 - name: Link .gitconfig
   ansible.builtin.file:
-    src: "{{ dotfiles }}/git/.gitconfig"
+    src: "{{ role_path }}/files/.gitconfig"
     dest: "{{ home }}/.gitconfig"
     state: link
-    force: yes
+    force: true

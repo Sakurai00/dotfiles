@@ -13,6 +13,7 @@
 	defaultBranch = master
 [push]
 	default = upstream
+	autoSetupRemote = true
 [pull]
 	ff = only
 [merge]
