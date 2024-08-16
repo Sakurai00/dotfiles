@@ -18,7 +18,7 @@ autoload -Uz _zinit
 
 # ====== Load Powerlevel10k ======
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f $ZDOTDIR/plugin/p10k.zsh ]] || source $ZDOTDIR/plugin/p10k.zsh
+[[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 # ====== ====== ======
 
 

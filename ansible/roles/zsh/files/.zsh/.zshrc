@@ -7,6 +7,10 @@ fi
 
 # export LANG=en_US.UTF-8
 
+# ====== Load path ======
+source $ZDOTDIR/path.zsh
+# ====== ====== ======
+
 # ====== Load plugin ======
 source $ZDOTDIR/plugin.zsh
 # ====== ====== ======
