@@ -1,9 +1,0 @@
----
-- name: Playbook
-  hosts: localhost
-  connection: local
-
-  tasks:
-    - name: debug
-      debug:
-        var: ansible_env.HOME

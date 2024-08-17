@@ -23,4 +23,4 @@ if ! type ansible >/dev/null 2>&1; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-ansible-playbook ./ansible/playbook.yml --ask-become-pass --tags minimum,normal
+ansible-playbook -i ./inventories/production/hosts.yml ./playbook.yml --ask-become-pass --tags minimum,normal
