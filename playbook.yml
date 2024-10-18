@@ -1,6 +1,7 @@
 ---
-- name: Playbook
+- name: dotfiles
   hosts: all
+
   roles:
     - role: common
       tags:

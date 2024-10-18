@@ -1,10 +1,23 @@
 ---
 
-- name: Install C/C++
+- name: Install C/C++ packages for apt
   become: true
+  when: ansible_pkg_mgr == "apt"
   ansible.builtin.apt:
     name:
       - build-essential
+      - gdb
+      - clang
+      - lldb
+      - cmake
+    state: latest
+
+- name: Install C/C++ packages for dnf
+  become: true
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.dnf:
+    name:
+      - "@Development tools"
       - gdb
       - clang
       - lldb

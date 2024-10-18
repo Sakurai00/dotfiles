@@ -1,8 +1,16 @@
 ---
 
-- name: Install zsh
+- name: Install zsh for apt
   become: true
+  when: ansible_pkg_mgr == "apt"
   ansible.builtin.apt:
+    name: zsh
+    state: latest
+
+- name: Install zsh for dnf
+  become: true
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.dnf:
     name: zsh
     state: latest
 
