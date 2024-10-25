@@ -16,12 +16,6 @@ autoload -Uz _zinit
 # ====== ====== ======
 
 
-# ====== Load Powerlevel10k ======
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
-# ====== ====== ======
-
-
 # ====== Completion ======
 zinit ice blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
@@ -43,16 +37,4 @@ zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
-# ====== ====== ======
-
-
-# ====== Load rtx ======
-if [ -d "$HOME/.local/share/rtx" ] ; then
-  eval "$($HOME/.local/share/rtx/bin/rtx activate zsh)"
-fi
-# ====== ====== ======
-
-
-# ====== Load fzf ======
-[ -f $ZDOTDIR/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
 # ====== ====== ======

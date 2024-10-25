@@ -11,12 +11,27 @@ fi
 source $ZDOTDIR/path.zsh
 # ====== ====== ======
 
-# ====== Load plugin ======
-source $ZDOTDIR/plugin.zsh
-# ====== ====== ======
-
 # ====== Load alias ======
 source $ZDOTDIR/alias.zsh
+# ====== ====== ======
+
+# ====== Load zinit ======
+source $ZDOTDIR/zinit.zsh
+# ====== ====== ======
+
+# ====== Load Powerlevel10k ======
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+[[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
+# ====== ====== ======
+
+# ====== Load rtx ======
+if [ -d "$HOME/.local/share/rtx" ] ; then
+  eval "$($HOME/.local/share/rtx/bin/rtx activate zsh)"
+fi
+# ====== ====== ======
+
+# ====== Load fzf ======
+[ -f $ZDOTDIR/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
 # ====== ====== ======
 
 
