@@ -1,0 +1,27 @@
+---
+
+- name: Install vim for apt
+  become: true
+  when: ansible_pkg_mgr == "apt"
+  ansible.builtin.apt:
+    name: vim
+    state: latest
+
+- name: Install vim for dnf
+  become: true
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.dnf:
+    name: vim
+    state: latest
+
+- name: Create ~/.vim
+  ansible.builtin.file:
+    path: "{{ home }}/.vim"
+    state: directory
+    mode: "0755"
+
+- name: Link .vimrc
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.vim/vimrc"
+    dest: "{{ home }}/.vim/vimrc"
+    state: link

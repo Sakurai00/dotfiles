@@ -1,0 +1,16 @@
+---
+
+- name: Check if Rye is installed
+  ansible.builtin.shell:
+    "rye --version"
+  register: rye_exists
+  ignore_errors: true
+
+- name: Install Rye
+  when: rye_exists is failed
+  ansible.builtin.shell:
+    'curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash'
+
+- name: Update Rye
+  ansible.builtin.shell:
+    "rye self update"

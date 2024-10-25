@@ -1,0 +1,33 @@
+---
+
+- name: Install tmux for apt
+  become: true
+  when: ansible_pkg_mgr == "apt"
+  ansible.builtin.apt:
+    name: tmux
+    state: latest
+
+- name: Install tmux for dnf
+  become: true
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.dnf:
+    name: tmux
+    state: latest
+
+- name: Create ~/.tmux/plugins/tpm
+  ansible.builtin.file:
+    path: "{{ home }}/.tmux/plugins/tpm"
+    state: directory
+    mode: '0755'
+
+- name: Clone tpm
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ home }}/.tmux/plugins/tpm"
+    version: master
+
+- name: Link .tmux.conf
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.tmux.conf"
+    dest: "{{ home }}/.tmux.conf"
+    state: link

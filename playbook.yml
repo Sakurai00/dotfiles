@@ -1,0 +1,64 @@
+---
+- name: dotfiles
+  hosts: all
+
+  roles:
+    - role: common
+      tags:
+        - common
+        - minimum
+
+    - role: cli_tools
+      tags:
+        - cli_tools
+        - extra
+
+    - role: zsh
+      tags:
+        - zsh
+        - minimum
+
+    - role: fzf
+      tags:
+        - fzf
+        - normal
+
+    - role: tmux
+      tags:
+        - tmux
+        - minimum
+
+    - role: vim
+      tags:
+        - vim
+        - minimum
+
+    - role: neovim
+      tags:
+        - neovim
+        - normal
+
+    - role: C
+      tags:
+        - C
+        - extra
+
+    - role: rust
+      tags:
+        - rust
+        - extra
+
+    - role: rtx
+      tags:
+        - rtx
+        - extra
+
+    - role: python
+      tags:
+        - python
+        - extra
+
+    - role: go
+      tags:
+        - go
+        - extra

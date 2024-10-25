@@ -1,0 +1,37 @@
+---
+
+- name: Upgrade packages
+  become: true
+  ansible.builtin.package:
+    name: '*'
+    state: latest
+
+- name: Install common packages for apt
+  become: true
+  when: ansible_pkg_mgr == "apt"
+  ansible.builtin.apt:
+    name:
+      - curl
+      - wget
+      - git
+      - snapd
+      - libssl-dev
+    state: latest
+
+- name: Install common packages for dnf
+  become: true
+  when: ansible_pkg_mgr == "dnf"
+  ansible.builtin.dnf:
+    name:
+      - curl
+      - wget
+      - git
+      - snapd
+    state: latest
+
+- name: Link .gitconfig
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.gitconfig"
+    dest: "{{ home }}/.gitconfig"
+    state: link
+    force: true
