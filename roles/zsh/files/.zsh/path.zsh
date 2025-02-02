@@ -14,10 +14,6 @@ if [ -d "$HOME/.cargo" ] ; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-if [ -d "$HOME/.rye" ] ; then
-    source "$HOME/.rye/env"
-fi
-
 if [ -d "$HOME/.volta" ] ; then
     export VOLTA_HOME="$HOME/.volta"
     export PATH="$VOLTA_HOME/bin:$PATH"

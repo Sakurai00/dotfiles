@@ -53,7 +53,7 @@
         - mise
         - extra
 
-    - role: python
+    - role: uv
       tags:
         - python
         - extra

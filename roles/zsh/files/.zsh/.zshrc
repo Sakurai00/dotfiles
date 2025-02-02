@@ -34,6 +34,13 @@ fi
 [ -f $ZDOTDIR/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
 # ====== ====== ======
 
+# ====== Load uv ======
+if [ -d "$HOME/.local/bin/uv" ] ; then
+  eval "$(uv generate-shell-completion zsh)"
+  eval "$(uvx --generate-shell-completion zsh)"
+fi
+# ====== ====== ======
+
 
 autoload -U colors && colors
 eval "$(dircolors -b ~/.zsh/.dircolors)"
