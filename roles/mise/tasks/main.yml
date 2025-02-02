@@ -1,0 +1,13 @@
+---
+
+- name: Check if mise is installed
+  ansible.builtin.shell: command -v mise
+  register: mise_exists
+  ignore_errors: true
+
+- name: Install mise
+  ansible.builtin.shell: curl https://mise.run | sh
+
+- name: Update mise
+  when: mise_exists is success
+  ansible.builtin.shell: mise self-update

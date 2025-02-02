@@ -48,9 +48,9 @@
         - rust
         - extra
 
-    - role: rtx
+    - role: mise
       tags:
-        - rtx
+        - mise
         - extra
 
     - role: python

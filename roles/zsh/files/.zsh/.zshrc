@@ -24,9 +24,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 # ====== ====== ======
 
-# ====== Load rtx ======
-if [ -d "$HOME/.local/share/rtx" ] ; then
-  eval "$($HOME/.local/share/rtx/bin/rtx activate zsh)"
+# ====== Load mise ======
+if [ -d "$HOME/.local/bin/mise" ] ; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
 fi
 # ====== ====== ======
 

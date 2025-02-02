@@ -25,7 +25,7 @@ zinit wait'1' lucid as"completion" is-snippet for \
   https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose \
   https://github.com/ilikenwf/apt-fast/blob/master/completions/zsh/_apt-fast \
   https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty \
-  https://github.com/jdx/rtx/blob/main/completions/_rtx \
+  https://github.com/jdx/mise/blob/main/completions/_mise \
 
 autoload -Uz compinit && compinit -C
 # ====== ====== ======
