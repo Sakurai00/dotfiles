@@ -2,16 +2,16 @@
 
 - name: Check if go {{ go_version }} is installed
   ansible.builtin.shell:
-    "rtx list golang | grep {{ go_version }}"
+    "mise list golang | grep {{ go_version }}"
   register: go_exists
   ignore_errors: true
 
 - name: Install go {{ go_version }}
   when: go_exists is failed
   ansible.builtin.shell:
-    "rtx install go@{{ go_version }}"
+    "mise install go@{{ go_version }}"
 
 - name: Set global version
   when: go_exists is failed
   ansible.builtin.shell:
-    "rtx use -g go@{{ go_version }}"
+    "mise use -g go@{{ go_version }}"
