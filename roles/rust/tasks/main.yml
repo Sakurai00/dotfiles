@@ -1,32 +1,32 @@
 ---
 
-  - name: Check if cargo is installed
-    ansible.builtin.shell: command -v cargo
-    register: cargo_exists
-    ignore_errors: true
+- name: Check if cargo is installed
+  ansible.builtin.shell: command -v cargo
+  register: cargo_exists
+  ignore_errors: true
 
-  - name: Download Rust installer
-    when: cargo_exists is failed
-    ansible.builtin.get_url:
-      url: https://sh.rustup.rs
-      dest: /tmp/sh.rustup.rs
-      mode: '0755'
-      force: true
+- name: Download Rust installer
+  when: cargo_exists is failed
+  ansible.builtin.get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+    mode: '0755'
+    force: true
 
-  - name: Install Rust
-    when: cargo_exists is failed
-    ansible.builtin.shell: /tmp/sh.rustup.rs -y
+- name: Install Rust
+  when: cargo_exists is failed
+  ansible.builtin.shell: /tmp/sh.rustup.rs -y
 
-  - name: Activate Rust
-    when: cargo_exists is failed
-    ansible.builtin.shell: export PATH="$HOME/.cargo/bin:$PATH"
+- name: Activate Rust
+  when: cargo_exists is failed
+  ansible.builtin.shell: export PATH="$HOME/.cargo/bin:$PATH"
 
-  - name: Update Rust
-    when: cargo_exists is success
-    ansible.builtin.shell: rustup update
+- name: Update Rust
+  when: cargo_exists is success
+  ansible.builtin.shell: rustup update
 
-  - name: Install "cargo-update"
-    community.general.cargo:
-      name: cargo-update
+- name: Install "cargo-update"
+  community.general.cargo:
+    name: cargo-update
 
 # https://waylonwalker.com/install-rust/
