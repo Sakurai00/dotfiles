@@ -50,9 +50,9 @@ C+q I
 
 - Lang
   - C/C++
-  - Python (rye)
+  - Python (uv)
   - Rust
-  - Go (rtx)
+  - Go (mise)
 
 ---
 ## Commands & Key Config
