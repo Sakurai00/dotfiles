@@ -32,6 +32,9 @@ autoload -Uz compinit && compinit -C
 
 
 # ====== Load Zinit plugins ======
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 

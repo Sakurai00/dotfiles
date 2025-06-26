@@ -1,44 +1,7 @@
-# ====== Powerlevel10k Instant prompt (keep top) ======
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-# ====== ====== ======
-
-
-# export LANG=en_US.UTF-8
-
-# ====== Load path ======
-source $ZDOTDIR/path.zsh
-# ====== ====== ======
-
-# ====== Load alias ======
-source $ZDOTDIR/alias.zsh
-# ====== ====== ======
-
-# ====== Load zinit ======
-source $ZDOTDIR/zinit.zsh
-# ====== ====== ======
-
-# ====== Load Powerlevel10k ======
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-[[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
-# ====== ====== ======
-
-# ====== Load mise ======
-if [ -d "$HOME/.local/bin/mise" ] ; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-fi
-# ====== ====== ======
-
-# ====== Load fzf ======
-[ -f $ZDOTDIR/fzf.zsh ] && source $ZDOTDIR/fzf.zsh
-# ====== ====== ======
-
-# ====== Load uv ======
-if [ -d "$HOME/.local/bin/uv" ] ; then
-  eval "$(uv generate-shell-completion zsh)"
-  eval "$(uvx --generate-shell-completion zsh)"
-fi
+# ====== Load conf.d ======
+for file in $(find $ZDOTDIR/conf.d -type f -name "*.zsh" | sort); do
+  source $file
+done
 # ====== ====== ======
 
 

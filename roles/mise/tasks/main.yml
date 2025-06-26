@@ -11,3 +11,9 @@
 
 - name: Update mise
   ansible.builtin.shell: "mise self-update"
+
+- name: Link mise zsh config
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.zsh/conf.d/mise.zsh"
+    dest: "{{ home }}/.zsh/conf.d/mise.zsh"
+    state: link

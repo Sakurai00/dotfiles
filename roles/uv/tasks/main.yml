@@ -11,3 +11,9 @@
 
 - name: Update uv
   ansible.builtin.shell: "uv self update"
+
+- name: Link uv zsh config
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.zsh/conf.d/uv.zsh"
+    dest: "{{ home }}/.zsh/conf.d/uv.zsh"
+    state: link

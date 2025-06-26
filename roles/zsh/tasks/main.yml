@@ -20,21 +20,23 @@
     state: directory
     mode: '0755'
 
-- name: Link .zshenv
+- name: Create ~/.zsh/conf.d
   ansible.builtin.file:
-    src: "{{ role_path }}/files/.zshenv"
-    dest: "{{ home }}/.zshenv"
-    state: link
+    path: "{{ home }}/.zsh/conf.d"
+    state: directory
+    mode: '0755'
 
-- name: Link zsh configs
+- name: Link zsh config files
   ansible.builtin.file:
-    src: "{{ role_path }}/files/.zsh/{{ item }}"
-    dest: "{{ home }}/.zsh/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ home }}/{{ item }}"
     state: link
   loop:
-    - .zshrc
-    - .dircolors
-    - alias.zsh
-    - p10k.zsh
-    - path.zsh
-    - zinit.zsh
+    - .zshenv
+    - .zsh/.zshrc
+    - .zsh/.dircolors
+    - .zsh/conf.d/00_powerlevel10k.zsh
+    - .zsh/conf.d/alias.zsh
+    - .zsh/conf.d/path.zsh
+    - .zsh/conf.d/01_zinit.zsh
+    - .zsh/conf.d/p10k.zsh
