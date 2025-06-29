@@ -1,42 +1,71 @@
 [user]
 	email = K.Sakurai00@outlook.com
 	name = Sakurai
-[color]
-	ui = true
 [core]
 	autocrlf = false
 	editor = vim
 	quotepath = false # 日本語ファイルの文字化け防止
 	ignorecase = false # ファイルの大文字小文字を区別する
-	pager = delta
-[init]
-	defaultBranch = master
-[push]
-	default = upstream
-	autoSetupRemote = true
-[pull]
-	ff = only
-[merge]
-	ff = false
-[fetch]
-    prune = true
-[rebase]
-    autostash = true
-	autosquash = true
+	# pager = delta
+[color]
+	ui = auto
 [credential]
 	helper = cache
+[help]
+	autocorrect = prompt
+[init]
+	defaultBranch = main
+[branch]
+	sort = -committerdate
+[commit]
+	verbose = true
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[rebase]
+    autosquash = true  # fixup/squash を自動適用
+    autostash  = true  # rebase前後に stash/pop を自動実行
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[pull]
+	ff = only
+[fetch]
+    prune = true
+	pruneTags = true
+	all = true
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[tag]
+	sort = version:refname
 [alias]
-    sw = switch
-    br = branch
-    pl = pull
+	# short hands
 	st = status -sb
+	co = checkout
+	sw = switch
+	br = branch
+	ci = commit
+	ca = commit --amend --no-edit
+	pl = pull
 	df = diff --color-words -w
-	tree = log --graph --oneline
-	l = log --date=format:'%Y/%m/%d %H:%M:%S' --pretty=format:'%C(green)%h %C(reset)%cd %C(blue)%cn %C(red)%d %C(reset)%s'
-	branch-clean = !git branch --merged | egrep -v '\\*|master|main' | xargs git branch -d ; git fetch --prune
-    alias = !git config --get-regexp 'alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	unstage = restore --staged
 
-[delta]
-    line-numbers = true
-	side-by-side = true
-	diff-so-fancy=true
+	# log
+	l = log --date=format:'%Y/%m/%d %H:%M:%S' --pretty=format:'%C(green)%h %C(reset)%cd %C(blue)%cn %C(red)%d %C(reset)%s'
+	graph = log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)'
+
+	# others
+	# branch-clean = !git branch --merged | egrep -v '\*|master|main' | xargs git branch -d ; git fetch --prune
+	# alias = !git config --get-regexp 'alias\.' | sed 's/alias\.\([^ ]*\) \(.*\)/\1\t => \2/' | sort
+
+# [delta]
+#     line-numbers = true
+# 	side-by-side = true
+# 	diff-so-fancy=true
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
