@@ -1,5 +1,5 @@
 # ====== Load conf.d ======
-for file in $(find $ZDOTDIR/conf.d -type f -name "*.zsh" | sort); do
+for file in $(find $ZDOTDIR/conf.d -name "*.zsh" | sort); do
   source $file
 done
 # ====== ====== ======

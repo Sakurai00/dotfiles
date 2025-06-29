@@ -1,3 +1,7 @@
+if [ -d "$HOME/.fzf" ] ; then
+    export PATH="$HOME/.fzf/bin:$PATH"
+fi
+
 # Auto-completion
 # ---------------
 [[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null

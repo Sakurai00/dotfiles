@@ -11,6 +11,6 @@
 
 - name: Link fzf.zsh
   ansible.builtin.file:
-    src: "{{ role_path }}/files/.zsh/fzf.zsh"
-    dest: "{{ home }}/.zsh/fzf.zsh"
+    src: "{{ role_path }}/files/.zsh/conf.d/fzf.zsh"
+    dest: "{{ home }}/.zsh/conf.d/fzf.zsh"
     state: link
