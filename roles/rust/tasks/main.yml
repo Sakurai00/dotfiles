@@ -29,4 +29,10 @@
   community.general.cargo:
     name: cargo-update
 
+- name: Link rust config
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.zsh/conf.d/rust.zsh"
+    dest: "{{ home }}/.zsh/conf.d/rust.zsh"
+    state: link
+
 # https://waylonwalker.com/install-rust/
