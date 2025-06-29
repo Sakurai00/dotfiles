@@ -51,7 +51,8 @@
     - role: mise
       tags:
         - mise
-        - extra
+        - normal
+
 
     - role: uv
       tags:
