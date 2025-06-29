@@ -11,49 +11,74 @@ fi
 # ------------
 source "$HOME/.fzf/shell/key-bindings.zsh"
 source <(fzf --zsh)
+export FZF_COMPLETION_TRIGGER=','
 
 
 # Default Command
+# ------------
 if type rg > /dev/null 2>&1; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
+    export FZF_DEFAULT_COMMAND='
+        rg --files --hidden --follow --glob "!{.git}/**"
+'
 else
-    export FZF_DEFAULT_COMMAND='find * -type f'
+    export FZF_DEFAULT_COMMAND='
+        find * -type f
+'
 fi
 
-export FZF_DEFAULT_OPTS='
-    --height 80%
-    --layout=reverse
-    --border=rounded
-    --multi
-    --info=inline'
+export FZF_DEFAULT_OPTS="
+    --height 80%        # 絞り込みウィンドウの高さをウィンドウの80%に制限する
+    --layout=reverse    # 絞り込み結果を上から表示
+    --border=rounded    # fzfのウィンドウを囲う
+    --multi             # TABで複数選択可能に
+    --info=inline       # 検索結果数をプロンプトバーに表示する
+"
 
 
 # Ctrl + R
+# ------------
 export FZF_CTRL_R_OPTS="
     --preview 'echo {}'
     --preview-window up:3:hidden:wrap
-    --bind 'ctrl-/:toggle-preview'"
+    --bind 'ctrl-/:toggle-preview'
+"
 
 
 # Ctrl + T
+# ------------
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 if type bat > /dev/null 2>&1; then
     export FZF_CTRL_T_OPTS="
-        --preview 'bat -n --color=always {}'
+        --preview 'bat --style=numbers --color=always {}'
         --preview-window=right,70%,wrap
-        --bind 'ctrl-/:toggle-preview'"
+        --bind 'ctrl-/:toggle-preview'
+"
 else
     export FZF_CTRL_T_OPTS="
         --preview 'cat -n {}'
         --preview-window=right,70%,wrap
-        --bind 'ctrl-/:toggle-preview'"
+        --bind 'ctrl-/:toggle-preview'
+"
 fi
 
 
 # Alt + C
-export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+# ------------
+if type eza > /dev/null 2>&1; then
+    export FZF_ALT_C_OPTS="
+        --preview 'eza --tree --color=always {} | head -200'
+"
+else
+    export FZF_ALT_C_OPTS="
+        --preview 'tree -C {} | head -200'
+"
+fi
+
 
 
 # Function
+# ------------
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -83,3 +108,25 @@ z() {
     _z "$@"
   fi
 }
+
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+fbr() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# https://wonderwall.hatenablog.com/entry/2017/10/06/063000
+# https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
+# https://github.com/junegunn/fzf/wiki/Examples
