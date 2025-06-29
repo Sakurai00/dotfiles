@@ -1,30 +1,19 @@
 ---
 
-- name: Install zsh for apt
+- name: Install zsh
   become: true
-  when: ansible_pkg_mgr == "apt"
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: zsh
     state: latest
 
-- name: Install zsh for dnf
-  become: true
-  when: ansible_pkg_mgr == "dnf"
-  ansible.builtin.dnf:
-    name: zsh
-    state: latest
-
-- name: Create ~/.zsh
+- name: Create zsh directories
   ansible.builtin.file:
-    path: "{{ home }}/.zsh"
+    path: "{{ home }}/{{ item }}"
     state: directory
     mode: '0755'
-
-- name: Create ~/.zsh/conf.d
-  ansible.builtin.file:
-    path: "{{ home }}/.zsh/conf.d"
-    state: directory
-    mode: '0755'
+  loop:
+    - .zsh
+    - .zsh/conf.d
 
 - name: Link zsh config files
   ansible.builtin.file:

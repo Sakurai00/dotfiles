@@ -1,16 +1,8 @@
 ---
 
-- name: Install tmux for apt
+- name: Install tmux
   become: true
-  when: ansible_pkg_mgr == "apt"
-  ansible.builtin.apt:
-    name: tmux
-    state: latest
-
-- name: Install tmux for dnf
-  become: true
-  when: ansible_pkg_mgr == "dnf"
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: tmux
     state: latest
 

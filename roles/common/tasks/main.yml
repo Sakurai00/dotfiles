@@ -6,27 +6,15 @@
     name: '*'
     state: latest
 
-- name: Install common packages for apt
+- name: Install common packages
   become: true
-  when: ansible_pkg_mgr == "apt"
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
       - curl
       - wget
       - git
       - snapd
-      - libssl-dev
-    state: latest
-
-- name: Install common packages for dnf
-  become: true
-  when: ansible_pkg_mgr == "dnf"
-  ansible.builtin.dnf:
-    name:
-      - curl
-      - wget
-      - git
-      - snapd
+      - "{{ 'libssl-dev' if ansible_pkg_mgr == 'apt' else 'openssl-devel' }}"
     state: latest
 
 - name: Link .gitconfig

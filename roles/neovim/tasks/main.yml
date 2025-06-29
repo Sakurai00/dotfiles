@@ -1,16 +1,8 @@
 ---
 
-- name: Install neovim for apt
+- name: Install neovim
   become: true
-  when: ansible_pkg_mgr == "apt"
-  ansible.builtin.apt:
-    name: neovim
-    state: latest
-
-- name: Install neovim for dnf
-  become: true
-  when: ansible_pkg_mgr == "dnf"
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: neovim
     state: latest
 

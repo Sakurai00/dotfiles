@@ -1,13 +1,9 @@
 ---
 
-- name: Install eza
+- name: Install cargo packages
   community.general.cargo:
-    name: eza
-
-- name: Install git-delta
-  community.general.cargo:
-    name: git-delta
-
-- name: Install bat
-  community.general.cargo:
-    name: bat
+    name: "{{ item }}"
+  loop:
+    - eza
+    - git-delta
+    - bat
