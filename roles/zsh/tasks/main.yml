@@ -24,8 +24,9 @@
     - .zshenv
     - .zsh/.zshrc
     - .zsh/.dircolors
-    - .zsh/conf.d/00_powerlevel10k.zsh
+    - .zsh/conf.d/00_p10k-instant-prompt.zsh
     - .zsh/conf.d/01_zinit.zsh
     - .zsh/conf.d/02_path.zsh
     - .zsh/conf.d/alias.zsh
     - .zsh/conf.d/p10k.zsh
+    - .zsh/conf.d/function.zsh

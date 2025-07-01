@@ -9,8 +9,11 @@
 - name: Install & Update fzf
   ansible.builtin.shell: $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
 
-- name: Link fzf.zsh
+- name: Link fzf config files
   ansible.builtin.file:
-    src: "{{ role_path }}/files/.zsh/conf.d/fzf.zsh"
-    dest: "{{ home }}/.zsh/conf.d/fzf.zsh"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ home }}/{{ item }}"
     state: link
+  loop:
+    - .zsh/conf.d/fzf.zsh
+    - .zsh/conf.d/fzf-function.zsh

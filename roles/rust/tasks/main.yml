@@ -28,6 +28,7 @@
 - name: Install "cargo-update"
   community.general.cargo:
     name: cargo-update
+  ignore_errors: true
 
 - name: Link rust config
   ansible.builtin.file:
