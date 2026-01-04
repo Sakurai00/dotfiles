@@ -30,3 +30,7 @@ fi
 if type git > /dev/null 2>&1; then
     alias g="git"
 fi
+
+if type kubectl > /dev/null 2>&1; then
+    alias k="kubectl"
+fi

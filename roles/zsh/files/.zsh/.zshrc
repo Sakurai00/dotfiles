@@ -9,16 +9,6 @@ autoload -U colors && colors
 eval "$(dircolors -b ~/.zsh/.dircolors)"
 
 
-# 補完
-setopt menu_complete # 補完の即時開始
-setopt magic_equal_subst # 引数も補完
-setopt auto_param_slash # ディレクトリの補完後末尾に/をつける
-setopt list_types # 補完に識別アイコンを付ける
-setopt auto_cd
-setopt complete_in_word # 単語の途中からでも補完を起動できるようにする
-setopt auto_list # 補完候補を一覧表示した際に、自動でメニュー選択を開始する
-setopt always_to_end # 補完が確定したら、カーソルを単語の末尾に移動する
-
 # 履歴
 HISTFILE=$ZDOTDIR/zsh-history
 HISTSIZE=100000
