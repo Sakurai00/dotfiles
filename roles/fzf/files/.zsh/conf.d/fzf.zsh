@@ -27,11 +27,15 @@ else
 fi
 
 export FZF_DEFAULT_OPTS="
-    --height 80%        # 絞り込みウィンドウの高さをウィンドウの80%に制限する
-    --layout=reverse    # 絞り込み結果を上から表示
-    --border=rounded    # fzfのウィンドウを囲う
-    --multi             # TABで複数選択可能に
-    --info=inline       # 検索結果数をプロンプトバーに表示する
+    --height 80%                    # 絞り込みウィンドウの高さをウィンドウの80%に制限する
+    --layout=reverse                # 絞り込み結果を上から表示
+    --border=rounded                # fzfのウィンドウを囲う
+    --info=inline                   # 検索結果数をプロンプトバーに表示する
+    --pointer='▶'
+    --marker='✓'
+    --multi                         # TABで複数選択可能に
+    --bind 'change:top'             # 検索ワードを入れたときに、一番上の選択項目を再選択する
+    --bind 'ctrl-/:toggle-preview'  # Ctrl+/でプレビュー表示切り替え
 "
 
 
@@ -40,7 +44,6 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_R_OPTS="
     --preview 'echo {}'
     --preview-window up:3:hidden:wrap
-    --bind 'ctrl-/:toggle-preview'
 "
 
 
@@ -52,13 +55,11 @@ if type bat > /dev/null 2>&1; then
     export FZF_CTRL_T_OPTS="
         --preview 'bat --style=numbers --color=always {}'
         --preview-window=right,70%,wrap
-        --bind 'ctrl-/:toggle-preview'
 "
 else
     export FZF_CTRL_T_OPTS="
         --preview 'cat -n {}'
         --preview-window=right,70%,wrap
-        --bind 'ctrl-/:toggle-preview'
 "
 fi
 
