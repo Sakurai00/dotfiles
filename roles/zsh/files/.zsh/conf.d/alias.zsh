@@ -1,36 +1,33 @@
+# --- Core Shell ---
 alias sudo='sudo '
+alias cpi='cp -i'
+alias mvi='mv -i'
+alias rmi='rm -i'
+alias his='history'
+alias relogin='exec $SHELL -l'
 
-if type apt-fast > /dev/null 2>&1; then
-    alias apt="apt-fast"
+# --- Package Manager ---
+if (( $+commands[apt-fast] )); then
+    alias apt='apt-fast'
 fi
 
-if type eza > /dev/null 2>&1; then
-    alias ls="eza -F"
-    alias lt="eza -aT -I '.git|.github'"
-    alias ll="eza -alF --git"
-    alias llt="eza -alFT -I '.git'"
+# --- Modern CLI Tools ---
+if (( $+commands[eza] )); then
+    alias ls='eza -F'
+    alias lt='eza -aT -I ".git|.github"'
+    alias ll='eza -alF --git'
+    alias llt='eza -alFT -I ".git"'
 fi
 
-alias cpi="cp -i"
-alias mvi="mv -i"
-alias rmi="rm -i"
-alias his="history"
-alias relogin="exec $SHELL -l"
-alias getpath="echo $PATH | sed -e 's/:/\n/g'"
-alias tm3="tmux new-session \; split-window -h \; split-window -v \;"
-
-if type nvim > /dev/null 2>&1; then
-    alias vim="nvim"
+if (( $+commands[bat] )); then
+    alias cat='bat'
 fi
 
-if type bat > /dev/null 2>&1; then
-    alias cat="bat"
-fi
+# --- Development Tools ---
+(( $+commands[nvim] ))    && alias vim='nvim'
+(( $+commands[git] ))     && alias g='git'
+(( $+commands[kubectl] )) && alias k='kubectl'
 
-if type git > /dev/null 2>&1; then
-    alias g="git"
-fi
-
-if type kubectl > /dev/null 2>&1; then
-    alias k="kubectl"
-fi
+# --- Custom Shortcuts ---
+alias tm3='tmux new-session \; split-window -h \; split-window -v \;'
+alias getpath='echo $PATH | sed -e "s/:/\n/g"'

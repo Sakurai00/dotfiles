@@ -1,11 +1,10 @@
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
+typeset -U path fpath cdpath
 
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
+path=(
+    $HOME/bin(N-/)
+    $HOME/.local/bin(N-/)
+    $HOME/.local/lib(N-/)
+    $path
+)
 
-if [ -d "$HOME/.local/lib" ] ; then
-    export PATH="$HOME/.local/lib:$PATH"
-fi
+export PATH

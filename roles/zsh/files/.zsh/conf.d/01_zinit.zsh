@@ -17,19 +17,12 @@ autoload -Uz _zinit
 
 
 # ====== Load Zinit plugins ======
+# Prompt (Immediate)
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-
-zinit ice wait lucid
-zinit light zdharma-continuum/fast-syntax-highlighting
-
-# History search based on substring
-zinit ice lucid wait'0' atload'
-    bindkey "^[[A" history-substring-search-up
-    bindkey "^[[B" history-substring-search-down
-'
-zinit light zsh-users/zsh-history-substring-search
+# Turbo Mode plugins (Delayed loading after prompt)
+zinit wait'0' lucid for \
+    atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+    zdharma-continuum/fast-syntax-highlighting
 # ====== ====== ======

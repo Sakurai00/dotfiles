@@ -1,5 +1,10 @@
 # ====== Completion ======
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.m-1) ]]; then
+  compinit -C
+else
+  compinit
+fi
 
 zinit ice blockf atpull'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
@@ -8,8 +13,7 @@ zinit wait'1' lucid as"completion" is-snippet for \
   https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
   https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose \
   https://github.com/ilikenwf/apt-fast/blob/master/completions/zsh/_apt-fast \
-  https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty \
-  https://github.com/jdx/mise/blob/main/completions/_mise \
+  https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 
 
 if type kubectl > /dev/null 2>&1; then
