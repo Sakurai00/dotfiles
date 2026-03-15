@@ -6,28 +6,19 @@
     name: zsh
     state: latest
 
-- name: Create zsh directories
+- name: Ensure zsh directories exist
   ansible.builtin.file:
-    path: "{{ home }}/{{ item }}"
+    path: "{{ home }}/{{ item.path }}"
     state: directory
-    mode: '0755'
-  loop:
-    - .zsh
-    - .zsh/conf.d
+    mode: "0755"
+  with_community.general.filetree: "{{ role_path }}/files/"
+  when: item.state == 'directory'
 
-- name: Link zsh config files
+- name: Link zsh configuration files
   ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ home }}/{{ item }}"
+    src: "{{ item.src }}"
+    dest: "{{ home }}/{{ item.path }}"
     state: link
-  loop:
-    - .zshenv
-    - .zsh/.zshrc
-    - .zsh/.dircolors
-    - .zsh/conf.d/00_p10k-instant-prompt.zsh
-    - .zsh/conf.d/01_zinit.zsh
-    - .zsh/conf.d/02_path.zsh
-    - .zsh/conf.d/10_completion.zsh
-    - .zsh/conf.d/alias.zsh
-    - .zsh/conf.d/p10k.zsh
-    - .zsh/conf.d/function.zsh
+    force: true
+  with_community.general.filetree: "{{ role_path }}/files/"
+  when: item.state == 'file'
