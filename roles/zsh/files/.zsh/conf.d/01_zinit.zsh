@@ -23,6 +23,5 @@ zinit light romkatv/powerlevel10k
 
 # Turbo Mode plugins (Delayed loading after prompt)
 zinit wait'0' lucid for \
-    atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
     zdharma-continuum/fast-syntax-highlighting
 # ====== ====== ======

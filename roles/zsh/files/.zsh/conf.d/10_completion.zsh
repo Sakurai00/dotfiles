@@ -1,33 +1,35 @@
-# ====== Completion ======
+# Completion Initialization
+# -----------------------------------------
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.m-1) ]]; then
-  compinit -C
+    compinit -C
 else
-  compinit
+    compinit
 fi
 
-zinit ice blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
+
+# Plugin Installation
+# -----------------------------------------
+zinit wait'0' lucid for \
+    blockf atpull'zinit creinstall -q .' zsh-users/zsh-completions \
+    atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions
 
 zinit wait'1' lucid as"completion" is-snippet for \
-  https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
-  https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose \
-  https://github.com/ilikenwf/apt-fast/blob/master/completions/zsh/_apt-fast \
-  https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
-
+    https://github.com/alacritty/alacritty/blob/master/extra/completions/_alacritty
 
 if type kubectl > /dev/null 2>&1; then
     source <(kubectl completion zsh)
 fi
 
 
-
+# Completion Styles
+# -----------------------------------------
 
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion::complete:*' use-cache true
-zstyle ':completion:*:*:*:*:*' group-name '' # 補完候補の視覚的なグルーピング
-zstyle ':completion:*:descriptions' format '%F{yellow}--- %d ---%f' # 補完候補に説明を追加する
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # 補完候補のカラーリング
+zstyle ':completion:*:*:*:*:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}--- %d ---%f'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # 曖昧検索
 zstyle ':completion:*' matcher-list '' \
@@ -37,11 +39,13 @@ zstyle ':completion:*' matcher-list '' \
     'l:|=* r:|=*'
 
 
-setopt menu_complete # 補完の即時開始
-setopt magic_equal_subst # 引数も補完
-setopt auto_param_slash # ディレクトリの補完後末尾に/をつける
-setopt list_types # 補完に識別アイコンを付ける
-setopt auto_cd
-setopt complete_in_word # 単語の途中からでも補完を起動できるようにする
-setopt auto_list # 補完候補を一覧表示した際に、自動でメニュー選択を開始する
-setopt always_to_end # 補完が確定したら、カーソルを単語の末尾に移動する
+# Zsh Options
+# -----------------------------------------
+setopt menu_complete       # 補完候補が1つの場合は即座に挿入
+setopt magic_equal_subst   # 引数=パス などの形式でも補完を有効化
+setopt auto_param_slash    # ディレクトリ補完時に末尾にスラッシュを自動付与
+setopt list_types          # 補完候補にファイル種別の識別マークを表示
+setopt auto_cd             # ディレクトリ名のみで移動
+setopt complete_in_word    # カーソル位置で補完
+setopt auto_list           # 補完候補を自動で一覧表示
+setopt always_to_end       # 補完確定時にカーソルを末尾へ移動
