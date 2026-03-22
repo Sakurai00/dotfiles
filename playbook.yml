@@ -13,6 +13,11 @@
         - cli_tools
         - extra
 
+    - role: docker
+      tags:
+        - docker
+        - extra
+
     - role: zsh
       tags:
         - zsh
