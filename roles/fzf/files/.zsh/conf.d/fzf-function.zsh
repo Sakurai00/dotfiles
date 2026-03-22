@@ -44,8 +44,8 @@ fbr() {
 }
 
 fs() {
-  local host=$(sshls | fsf)
-  if [ - n "${host}" ]; then
+  local host=$(sshls | fzf)
+  if [ -n "${host}" ]; then
     echo "Connecting to ${host}..."
     ssh ${host}
   fi

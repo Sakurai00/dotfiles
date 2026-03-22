@@ -1,5 +1,5 @@
 sshls() {
-    grep -e ^Host ~/.ssh/config | head -n -1 | sed -e "s/Host //"
+    grep -e ^Host ~/.ssh/config | sed -e "s/Host //"
 }
 
 sshgrep() {
