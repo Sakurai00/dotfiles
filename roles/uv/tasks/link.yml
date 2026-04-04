@@ -1,0 +1,6 @@
+---
+
+- name: Link uv config tree
+  ansible.builtin.include_tasks: ../../shared/tasks/link_filetree.yml
+  vars:
+    _filetree_root: "{{ role_path }}/files/"

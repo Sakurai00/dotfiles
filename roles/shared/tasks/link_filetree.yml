@@ -1,0 +1,23 @@
+---
+# Required:
+# - _filetree_root: path to role files root (e.g. "{{ role_path }}/files/")
+# Optional:
+# - _dir_mode: directory mode (default "0755")
+# - _link_force: force symlink overwrite (default true)
+
+- name: Ensure config directories exist
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item.path }}"
+    state: directory
+    mode: "{{ _dir_mode | default('0755') }}"
+  with_community.general.filetree: "{{ _filetree_root }}"
+  when: item.state == 'directory'
+
+- name: Link configuration files
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ home }}/{{ item.path }}"
+    state: link
+    force: "{{ _link_force | default(true) }}"
+  with_community.general.filetree: "{{ _filetree_root }}"
+  when: item.state == 'file'

@@ -1,30 +1,11 @@
 ---
 
-- name: Check if mise is installed
-  ansible.builtin.shell: "command -v mise"
-  register: mise_exists
-  ignore_errors: true
+- name: mise | install
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - install
 
-- name: Install mise
-  when: mise_exists is failed
-  ansible.builtin.shell: "curl https://mise.run | sh"
-
-- name: Update mise
-  ansible.builtin.shell: "mise self-update"
-
-- name: Ensure mise config directories exist
-  ansible.builtin.file:
-    path: "{{ home }}/{{ item.path }}"
-    state: directory
-    mode: "0755"
-  with_community.general.filetree: "{{ role_path }}/files/"
-  when: item.state == 'directory'
-
-- name: Link mise configuration files
-  ansible.builtin.file:
-    src: "{{ item.src }}"
-    dest: "{{ home }}/{{ item.path }}"
-    state: link
-    force: true
-  with_community.general.filetree: "{{ role_path }}/files/"
-  when: item.state == 'file'
+- name: mise | link
+  ansible.builtin.import_tasks: link.yml
+  tags:
+    - link
