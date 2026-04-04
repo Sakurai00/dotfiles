@@ -22,26 +22,36 @@
       tags:
         - zsh
         - minimum
+        - install
+        - link
 
     - role: fzf
       tags:
         - fzf
         - normal
+        - install
+        - link
 
     - role: tmux
       tags:
         - tmux
         - minimum
+        - install
+        - link
 
     - role: vim
       tags:
         - vim
         - minimum
+        - install
+        - link
 
     - role: neovim
       tags:
         - neovim
         - normal
+        - install
+        - link
 
     - role: C
       tags:
@@ -57,14 +67,19 @@
       tags:
         - mise
         - normal
+        - install
+        - link
 
 
     - role: uv
       tags:
         - python
         - extra
+        - install
+        - link
 
     - role: go
       tags:
         - go
         - extra
+        - install
