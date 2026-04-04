@@ -5,17 +5,17 @@
     repo: https://github.com/junegunn/fzf.git
     dest: "{{ home }}/.fzf"
     version: master
-  when: ansible_system == 'Linux'
+  when: ansible_facts['system'] == 'Linux'
 
 - name: Install & Update fzf (Linux)
   ansible.builtin.shell: $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
-  when: ansible_system == 'Linux'
+  when: ansible_facts['system'] == 'Linux'
 
 - name: Install fzf (macOS)
   community.general.homebrew:
     name: fzf
     state: latest
-  when: ansible_system == 'Darwin'
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: Ensure fzf config directories exist
   ansible.builtin.file:

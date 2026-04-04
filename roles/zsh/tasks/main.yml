@@ -5,13 +5,13 @@
   ansible.builtin.package:
     name: zsh
     state: latest
-  when: ansible_system == 'Linux'
+  when: ansible_facts['system'] == 'Linux'
 
 - name: Install zsh (macOS)
   community.general.homebrew:
     name: zsh
     state: latest
-  when: ansible_system == 'Darwin'
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: Ensure zsh directories exist
   ansible.builtin.file:
