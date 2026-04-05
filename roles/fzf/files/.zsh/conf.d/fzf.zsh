@@ -1,16 +1,39 @@
-if [ -d "$HOME/.fzf" ] ; then
-    export PATH="$HOME/.fzf/bin:$PATH"
+# fzf installation root search
+# ---------------------------
+_fzf_candidates=(
+    "$HOME/.fzf"            # Linux (git installation)
+    "/opt/homebrew/opt/fzf" # macOS (Homebrew Apple Silicon)
+    "/usr/local/opt/fzf"    # macOS (Homebrew Intel)
+)
+
+_fzf_root=""
+for _dir in $_fzf_candidates; do
+    if [[ -d "$_dir" ]]; then
+        _fzf_root="$_dir"
+        break
+    fi
+done
+
+# Environment Setup
+# -----------------
+if [[ -n "$_fzf_root" ]]; then
+    # Add to PATH if it's a manual git install
+    [[ "$_fzf_root" == "$HOME/.fzf" ]] && path=("$_fzf_root/bin" $path)
+
+    # Auto-completion
+    [[ $- == *i* ]] && source "$_fzf_root/shell/completion.zsh" 2> /dev/null
+
+    # Key bindings
+    source "$_fzf_root/shell/key-bindings.zsh"
 fi
 
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+# Modern Initialization (fzf >= 0.48.0)
+if type fzf > /dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
 
+unset _fzf_candidates _fzf_root
 
-# Key bindings
-# ------------
-source "$HOME/.fzf/shell/key-bindings.zsh"
-source <(fzf --zsh)
 export FZF_COMPLETION_TRIGGER=','
 
 

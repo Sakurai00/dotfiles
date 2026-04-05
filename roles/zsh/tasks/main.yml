@@ -1,10 +1,17 @@
 ---
 
-- name: Install zsh
+- name: Install zsh (Linux)
   become: true
   ansible.builtin.package:
     name: zsh
     state: latest
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install zsh (macOS)
+  community.general.homebrew:
+    name: zsh
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'
 
 - name: Ensure zsh directories exist
   ansible.builtin.file:
