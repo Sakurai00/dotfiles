@@ -1,0 +1,7 @@
+---
+
+- name: Install vim
+  become: true
+  ansible.builtin.package:
+    name: vim
+    state: latest

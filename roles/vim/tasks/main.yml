@@ -1,24 +1,11 @@
 ---
 
-- name: Install vim
-  become: true
-  ansible.builtin.package:
-    name: vim
-    state: latest
+- name: vim | install
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - install
 
-- name: Ensure vim directories exist
-  ansible.builtin.file:
-    path: "{{ home }}/{{ item.path }}"
-    state: directory
-    mode: "0755"
-  with_community.general.filetree: "{{ role_path }}/files/"
-  when: item.state == 'directory'
-
-- name: Link vim configuration files
-  ansible.builtin.file:
-    src: "{{ item.src }}"
-    dest: "{{ home }}/{{ item.path }}"
-    state: link
-    force: true
-  with_community.general.filetree: "{{ role_path }}/files/"
-  when: item.state == 'file'
+- name: vim | link
+  ansible.builtin.import_tasks: link.yml
+  tags:
+    - link
