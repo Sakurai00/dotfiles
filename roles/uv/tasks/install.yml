@@ -1,13 +1,21 @@
 ---
 
-- name: Check if uv is installed
-  ansible.builtin.shell: command -v uv
-  register: uv_exists
-  ignore_errors: true
+- name: Check if uv binary exists
+  ansible.builtin.stat:
+    path: "{{ home }}/.local/bin/uv"
+  register: uv_binary
 
 - name: Install uv
-  when: uv_exists is failed
+  when: not uv_binary.stat.exists
   ansible.builtin.shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+  args:
+    creates: "{{ home }}/.local/bin/uv"
 
 - name: Update uv
-  ansible.builtin.shell: "uv self update"
+  when: uv_binary.stat.exists
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/uv"
+      - self
+      - update
+  changed_when: false
