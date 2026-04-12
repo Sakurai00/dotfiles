@@ -1,17 +1,28 @@
 ---
 
 - name: Check if go {{ go_version }} is installed
-  ansible.builtin.shell:
-    "mise list golang | grep {{ go_version }}"
-  register: go_exists
-  ignore_errors: true
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - where
+      - "go@{{ go_version }}"
+  register: go_installation
+  changed_when: false
+  failed_when: false
 
 - name: Install go {{ go_version }}
-  when: go_exists is failed
-  ansible.builtin.shell:
-    "mise install go@{{ go_version }}"
+  when: go_installation.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - install
+      - "go@{{ go_version }}"
 
 - name: Set global version
-  when: go_exists is failed
-  ansible.builtin.shell:
-    "mise use -g go@{{ go_version }}"
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - use
+      - -g
+      - "go@{{ go_version }}"
+  changed_when: go_installation.rc != 0
