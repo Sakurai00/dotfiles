@@ -19,10 +19,10 @@
       - "go@{{ go_version }}"
 
 - name: Set global version
+  when: go_installation.rc != 0
   ansible.builtin.command:
     argv:
       - "{{ home }}/.local/bin/mise"
       - use
       - -g
       - "go@{{ go_version }}"
-  changed_when: go_installation.rc != 0

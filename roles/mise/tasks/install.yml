@@ -1,20 +1,22 @@
 ---
 
-- name: Check if mise binary exists
+- name: Check if mise is installed
   ansible.builtin.stat:
     path: "{{ home }}/.local/bin/mise"
   register: mise_binary
 
+- name: Download mise installer
+  when: not mise_binary.stat.exists
+  ansible.builtin.get_url:
+    url: https://mise.run
+    dest: /tmp/mise-install.sh
+    mode: "0755"
+    force: true
+
 - name: Install mise
   when: not mise_binary.stat.exists
-  ansible.builtin.shell: curl https://mise.run | sh
-  args:
-    creates: "{{ home }}/.local/bin/mise"
-
-- name: Update mise
-  when: mise_binary.stat.exists
   ansible.builtin.command:
     argv:
-      - "{{ home }}/.local/bin/mise"
-      - self-update
-  changed_when: false
+      - /tmp/mise-install.sh
+  args:
+    creates: "{{ home }}/.local/bin/mise"

@@ -1,6 +1,6 @@
 ---
 
-- name: Check if cargo binary exists
+- name: Check if cargo is installed
   ansible.builtin.stat:
     path: "{{ home }}/.cargo/bin/cargo"
   register: cargo_binary
@@ -19,6 +19,8 @@
     argv:
       - /tmp/sh.rustup.rs
       - -y
+  args:
+    creates: "{{ home }}/.cargo/bin/cargo"
 
 - name: Update Rust
   when: cargo_binary.stat.exists
@@ -26,13 +28,12 @@
     argv:
       - "{{ home }}/.cargo/bin/rustup"
       - update
-  changed_when: false
 
 - name: Install "cargo-update"
   community.general.cargo:
     name: cargo-update
   environment:
-    PATH: "{{ home }}/.cargo/bin:{{ ansible_env.PATH }}"
+    PATH: "{{ home }}/.cargo/bin:{{ ansible_facts['env']['PATH'] }}"
   ignore_errors: true
 
 - name: Link rust config

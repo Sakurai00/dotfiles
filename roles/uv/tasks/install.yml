@@ -1,13 +1,23 @@
 ---
 
-- name: Check if uv binary exists
+- name: Check if uv is installed
   ansible.builtin.stat:
     path: "{{ home }}/.local/bin/uv"
   register: uv_binary
 
+- name: Download uv installer
+  when: not uv_binary.stat.exists
+  ansible.builtin.get_url:
+    url: https://astral.sh/uv/install.sh
+    dest: /tmp/uv-install.sh
+    mode: "0755"
+    force: true
+
 - name: Install uv
   when: not uv_binary.stat.exists
-  ansible.builtin.shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+  ansible.builtin.command:
+    argv:
+      - /tmp/uv-install.sh
   args:
     creates: "{{ home }}/.local/bin/uv"
 
@@ -18,4 +28,3 @@
       - "{{ home }}/.local/bin/uv"
       - self
       - update
-  changed_when: false
