@@ -6,23 +6,14 @@
       - "{{ home }}/.local/bin/mise"
       - where
       - "go@{{ go_version }}"
-  register: go_installation
+  register: go_exists
   changed_when: false
   failed_when: false
 
 - name: Install go {{ go_version }}
-  when: go_installation.rc != 0
+  when: go_exists.rc != 0
   ansible.builtin.command:
     argv:
       - "{{ home }}/.local/bin/mise"
       - install
-      - "go@{{ go_version }}"
-
-- name: Set global version
-  when: go_installation.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - use
-      - -g
       - "go@{{ go_version }}"
