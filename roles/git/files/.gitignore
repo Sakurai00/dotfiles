@@ -1,0 +1,4 @@
+# Personal and sensitive data (deployment target)
+.ssh/
+.aws/
+.azure/

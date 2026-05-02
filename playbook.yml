@@ -8,6 +8,11 @@
         - common
         - minimum
 
+    - role: git
+      tags:
+        - git
+        - minimum
+
     - role: cli_tools
       tags:
         - cli_tools
