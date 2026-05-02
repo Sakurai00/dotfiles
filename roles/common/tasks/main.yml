@@ -16,10 +16,3 @@
       - snapd
       - "{{ 'libssl-dev' if ansible_pkg_mgr == 'apt' else 'openssl-devel' }}"
     state: latest
-
-- name: Link .gitconfig
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/.gitconfig"
-    dest: "{{ home }}/.gitconfig"
-    state: link
-    force: true

@@ -1,6 +1,3 @@
-[user]
-	email = K.Sakurai2000@gmail.com
-	name = Sakurai
 [core]
 	autocrlf = false
 	editor = vim
@@ -19,10 +16,19 @@
 	sort = -committerdate
 [commit]
 	verbose = true
+	gpgsign = true
 [push]
 	default = simple
 	autoSetupRemote = true
 	followTags = true
+[merge]
+    ff = false
+[fetch]
+    prune = true
+	pruneTags = true
+	all = true
+[pull]
+	ff = only
 [rebase]
     autosquash = true  # fixup/squash を自動適用
     autostash  = true  # rebase前後に stash/pop を自動実行
@@ -30,12 +36,6 @@
 [rerere]
 	enabled = true
 	autoupdate = true
-[pull]
-	ff = only
-[fetch]
-    prune = true
-	pruneTags = true
-	all = true
 [diff]
 	algorithm = histogram
 	colorMoved = plain
@@ -69,3 +69,17 @@
 # 	diff-so-fancy=true
 
 # https://blog.gitbutler.com/how-git-core-devs-configure-git/
+
+[gpg]
+	format = ssh
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[include]
+	path = .gitconfig.local
+[ghq]
+	root = ~/projects

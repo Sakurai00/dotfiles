@@ -1,0 +1,54 @@
+---
+- name: Install git
+  become: yes
+  ansible.builtin.package:
+    name: git
+    state: present
+
+- name: Check if ghq is installed via mise
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - where
+      - ghq
+  register: ghq_installation
+  changed_when: false
+  failed_when: false
+
+- name: Install ghq via mise
+  when: ghq_installation.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - install
+      - ghq
+
+- name: Set ghq via mise
+  when: ghq_installation.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - use
+      - -g
+      - ghq
+
+- name: Link .gitconfig
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.gitconfig"
+    dest: "{{ home }}/.gitconfig"
+    state: link
+    force: yes
+
+- name: Link .gitconfig.local template
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.gitconfig.local"
+    dest: "{{ home }}/.gitconfig.local"
+    state: link
+    force: no
+
+- name: Link .gitignore to home directory
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.gitignore"
+    dest: "{{ home }}/.gitignore"
+    state: link
+    force: yes

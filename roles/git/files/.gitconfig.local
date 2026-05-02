@@ -1,0 +1,12 @@
+# Local git configuration
+# This file is included by .gitconfig via [include] path.
+# Copy this structure into your local ~/.gitconfig.local and replace the values
+# with your own settings as needed.
+
+[user]
+	email = your-email@example.com
+	name = Your Name
+	signingKey = key::your-signing-key
+
+# [commit]
+#	gpgsign = false
