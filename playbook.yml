@@ -89,3 +89,10 @@
         - extra
         - install
         - link
+
+    - role: node
+      tags:
+        - node
+        - extra
+        - install
+        - link

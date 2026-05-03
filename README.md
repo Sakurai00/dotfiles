@@ -53,6 +53,7 @@ C+q I
   - Python (uv)
   - Rust
   - Go (mise)
+  - Node.js / npm / pnpm (mise)
 
 ---
 ## Commands & Key Config

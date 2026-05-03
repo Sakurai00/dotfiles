@@ -1,0 +1,11 @@
+---
+
+- name: node | install
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - install
+
+- name: node | link
+  ansible.builtin.import_tasks: link.yml
+  tags:
+    - link
