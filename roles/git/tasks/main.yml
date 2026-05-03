@@ -23,14 +23,18 @@
       - install
       - ghq
 
-- name: Set ghq via mise
-  when: ghq_installation.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - use
-      - -g
-      - ghq
+- name: Ensure mise conf.d directory exists
+  ansible.builtin.file:
+    path: "{{ home }}/.config/mise/conf.d"
+    state: directory
+    mode: "0755"
+
+- name: Link ghq mise config
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/.config/mise/conf.d/ghq.toml"
+    dest: "{{ home }}/.config/mise/conf.d/ghq.toml"
+    state: link
+    force: yes
 
 - name: Link .gitconfig
   ansible.builtin.file:

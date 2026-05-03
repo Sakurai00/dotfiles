@@ -1,0 +1,19 @@
+---
+
+- name: Check if go {{ go_version }} is installed
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - where
+      - "go@{{ go_version }}"
+  register: go_exists
+  changed_when: false
+  failed_when: false
+
+- name: Install go {{ go_version }} via mise
+  when: go_exists.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - install
+      - "go@{{ go_version }}"
