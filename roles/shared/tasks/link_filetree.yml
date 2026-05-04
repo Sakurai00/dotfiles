@@ -1,27 +1,27 @@
 ---
 # Required:
-# - _filetree_root: path to role files root (e.g. "{{ role_path }}/files/")
+# - _root: path to role files root (e.g. "{{ role_path }}/files/")
 # Optional:
 # - _dir_mode: directory mode (default "0755")
 # - _link_force: force symlink overwrite (default true)
 
-- name: Collect config tree entries
+- name: Collect link entries
   ansible.builtin.set_fact:
-    _filetree_items: "{{ lookup('community.general.filetree', _filetree_root, wantlist=True) }}"
+    _entries: "{{ lookup('community.general.filetree', _root, wantlist=True) }}"
 
-- name: Ensure config directories exist
+- name: Ensure link dirs
   ansible.builtin.file:
     path: "{{ home }}/{{ item.path }}"
     state: directory
     mode: "{{ _dir_mode | default('0755') }}"
-  loop: "{{ _filetree_items }}"
+  loop: "{{ _entries }}"
   when: item.state == 'directory'
 
-- name: Link configuration files
+- name: Link files
   ansible.builtin.file:
     src: "{{ item.src }}"
     dest: "{{ home }}/{{ item.path }}"
     state: link
     force: "{{ _link_force | default(true) }}"
-  loop: "{{ _filetree_items }}"
+  loop: "{{ _entries }}"
   when: item.state == 'file'
