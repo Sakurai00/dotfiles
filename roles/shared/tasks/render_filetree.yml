@@ -1,16 +1,15 @@
 ---
 # Required:
-# - _root: path to role files root (e.g. "{{ role_path }}/files/")
+# - _root: path to role templates root (e.g. "{{ role_path }}/templates/")
 # Optional:
 # - _dir_mode: directory mode (default "0755")
-# - _link_force: force symlink overwrite (default true)
-# - _link_force_overrides: per-path force overrides
+# - _file_mode: rendered file mode (default "0644")
 
-- name: Collect link entries
+- name: Collect render entries
   ansible.builtin.set_fact:
     _entries: "{{ lookup('community.general.filetree', _root, wantlist=True) }}"
 
-- name: Ensure link dirs
+- name: Ensure render dirs
   ansible.builtin.file:
     path: "{{ home }}/{{ item.path }}"
     state: directory
@@ -18,11 +17,10 @@
   loop: "{{ _entries }}"
   when: item.state == 'directory'
 
-- name: Link files
-  ansible.builtin.file:
+- name: Render files
+  ansible.builtin.template:
     src: "{{ item.src }}"
-    dest: "{{ home }}/{{ item.path }}"
-    state: link
-    force: "{{ _link_force_overrides[item.path] | default(_link_force | default(true)) }}"
+    dest: "{{ home }}/{{ item.path | regex_replace('\\.j2$', '') }}"
+    mode: "{{ _file_mode | default('0644') }}"
   loop: "{{ _entries }}"
   when: item.state == 'file'

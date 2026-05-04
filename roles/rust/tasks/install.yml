@@ -1,0 +1,36 @@
+---
+- name: Check if cargo is installed
+  ansible.builtin.stat:
+    path: "{{ home }}/.cargo/bin/cargo"
+  register: cargo_binary
+
+- name: Download Rust installer
+  when: not cargo_binary.stat.exists
+  ansible.builtin.get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+    mode: "0755"
+    force: true
+
+- name: Install Rust
+  when: not cargo_binary.stat.exists
+  ansible.builtin.command:
+    argv:
+      - /tmp/sh.rustup.rs
+      - -y
+  args:
+    creates: "{{ home }}/.cargo/bin/cargo"
+
+- name: Update Rust
+  when: cargo_binary.stat.exists
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.cargo/bin/rustup"
+      - update
+
+- name: Install cargo-update
+  community.general.cargo:
+    name: cargo-update
+  environment:
+    PATH: "{{ home }}/.cargo/bin:{{ ansible_facts['env']['PATH'] }}"
+  ignore_errors: true

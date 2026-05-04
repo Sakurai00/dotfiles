@@ -1,65 +1,10 @@
 ---
-- name: Install git (Linux)
-  become: yes
-  ansible.builtin.package:
-    name: git
-    state: present
-  when: ansible_facts['system'] == 'Linux'
+- name: git | install
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - install
 
-- name: Install git (macOS)
-  community.general.homebrew:
-    name: git
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
-
-- name: Check if ghq is installed via mise
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - where
-      - ghq
-  register: ghq_installation
-  changed_when: false
-  failed_when: false
-
-- name: Install ghq via mise
-  when: ghq_installation.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - install
-      - ghq
-
-- name: Ensure mise conf.d directory exists
-  ansible.builtin.file:
-    path: "{{ home }}/.config/mise/conf.d"
-    state: directory
-    mode: "0755"
-
-- name: Link ghq mise config
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/.config/mise/conf.d/ghq.toml"
-    dest: "{{ home }}/.config/mise/conf.d/ghq.toml"
-    state: link
-    force: yes
-
-- name: Link .gitconfig
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/.gitconfig"
-    dest: "{{ home }}/.gitconfig"
-    state: link
-    force: yes
-
-- name: Link .gitconfig.local template
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/.gitconfig.local"
-    dest: "{{ home }}/.gitconfig.local"
-    state: link
-    force: no
-
-- name: Link .gitignore to home directory
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/.gitignore"
-    dest: "{{ home }}/.gitignore"
-    state: link
-    force: yes
+- name: git | link
+  ansible.builtin.import_tasks: link.yml
+  tags:
+    - link

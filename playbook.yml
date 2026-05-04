@@ -12,6 +12,8 @@
       tags:
         - git
         - minimum
+        - install
+        - link
 
     - role: cli_tools
       tags:
@@ -22,6 +24,8 @@
       tags:
         - docker
         - extra
+        - install
+        - link
 
     - role: zsh
       tags:
@@ -67,6 +71,8 @@
       tags:
         - rust
         - extra
+        - install
+        - link
 
     - role: mise
       tags:

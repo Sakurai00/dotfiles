@@ -1,0 +1,31 @@
+---
+- name: Install git (Linux)
+  become: yes
+  ansible.builtin.package:
+    name: git
+    state: present
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install git (macOS)
+  community.general.homebrew:
+    name: git
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'
+
+- name: Check if ghq is installed via mise
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - where
+      - ghq
+  register: ghq_installation
+  changed_when: false
+  failed_when: false
+
+- name: Install ghq via mise
+  when: ghq_installation.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - install
+      - ghq
