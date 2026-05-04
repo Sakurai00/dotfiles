@@ -1,6 +1,6 @@
 ---
 
-- name: Install C/C++ packages
+- name: Install C/C++ packages (Linux)
   become: true
   ansible.builtin.package:
     name:
@@ -10,3 +10,13 @@
       - lldb
       - cmake
     state: latest
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install C/C++ packages (macOS)
+  community.general.homebrew:
+    name:
+      - gdb
+      - llvm
+      - cmake
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'

@@ -1,7 +1,14 @@
 ---
 
-- name: Install vim
+- name: Install vim (Linux)
   become: true
   ansible.builtin.package:
     name: vim
     state: latest
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install vim (macOS)
+  community.general.homebrew:
+    name: vim
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'

@@ -1,12 +1,19 @@
 ---
 
-- name: Upgrade packages
+- name: Upgrade packages (Linux)
   become: true
   ansible.builtin.package:
     name: '*'
     state: latest
+  when: ansible_facts['system'] == 'Linux'
 
-- name: Install common packages
+- name: Upgrade packages (macOS)
+  community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+  when: ansible_facts['system'] == 'Darwin'
+
+- name: Install common packages (Linux)
   become: true
   ansible.builtin.package:
     name:
@@ -16,3 +23,14 @@
       - snapd
       - "{{ 'libssl-dev' if ansible_pkg_mgr == 'apt' else 'openssl-devel' }}"
     state: latest
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install common packages (macOS)
+  community.general.homebrew:
+    name:
+      - curl
+      - wget
+      - git
+      - openssl
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'

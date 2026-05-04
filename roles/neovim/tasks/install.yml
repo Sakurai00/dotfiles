@@ -1,7 +1,14 @@
 ---
 
-- name: Install neovim
+- name: Install neovim (Linux)
   become: true
   ansible.builtin.package:
     name: neovim
     state: latest
+  when: ansible_facts['system'] == 'Linux'
+
+- name: Install neovim (macOS)
+  community.general.homebrew:
+    name: neovim
+    state: latest
+  when: ansible_facts['system'] == 'Darwin'
