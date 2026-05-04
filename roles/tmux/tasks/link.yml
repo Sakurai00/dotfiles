@@ -1,6 +1,6 @@
 ---
 
-- name: Link tmux config tree
-  ansible.builtin.import_tasks: ../../shared/tasks/link_filetree.yml
+- name: Link tmux files
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/link_filetree.yml"
   vars:
-    _filetree_root: "{{ role_path }}/files/"
+    _root: "{{ role_path }}/files/"

@@ -1,6 +1,5 @@
 ---
-
-- name: Link mise files
+- name: Link docker files
   ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/link_filetree.yml"
   vars:
     _root: "{{ role_path }}/files/"
