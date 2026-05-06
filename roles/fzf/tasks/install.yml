@@ -5,11 +5,28 @@
     repo: https://github.com/junegunn/fzf.git
     dest: "{{ home }}/.fzf"
     version: master
+  register: fzf_repo
   when: ansible_facts['system'] == 'Linux'
 
-- name: Install & Update fzf (Linux)
-  ansible.builtin.shell: $HOME/.fzf/install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
+- name: Check if fzf binary is installed (Linux)
+  ansible.builtin.stat:
+    path: "{{ home }}/.fzf/bin/fzf"
+  register: fzf_binary
   when: ansible_facts['system'] == 'Linux'
+
+- name: Install or update fzf shell integration (Linux)
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.fzf/install"
+      - --no-key-bindings
+      - --no-completion
+      - --no-update-rc
+      - --no-bash
+      - --no-zsh
+      - --no-fish
+  when:
+    - ansible_facts['system'] == 'Linux'
+    - fzf_repo.changed or not fzf_binary.stat.exists
 
 - name: Install fzf (macOS)
   community.general.homebrew:
