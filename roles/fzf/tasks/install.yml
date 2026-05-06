@@ -14,7 +14,7 @@
   register: fzf_binary
   when: ansible_facts['system'] == 'Linux'
 
-- name: Install & Update fzf (Linux)
+- name: Install or update fzf shell integration (Linux)
   ansible.builtin.command:
     argv:
       - "{{ home }}/.fzf/install"

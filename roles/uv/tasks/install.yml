@@ -21,10 +21,23 @@
   args:
     creates: "{{ home }}/.local/bin/uv"
 
-- name: Update uv
-  when: uv_binary.stat.exists
+- name: Check for uv updates
   ansible.builtin.command:
     argv:
       - "{{ home }}/.local/bin/uv"
       - self
       - update
+      - --dry-run
+  register: uv_update_check
+  changed_when: false
+  when: uv_binary.stat.exists
+
+- name: Update uv
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/uv"
+      - self
+      - update
+  when:
+    - uv_binary.stat.exists
+    - "'Would update uv' in uv_update_check.stdout"

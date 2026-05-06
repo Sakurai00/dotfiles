@@ -21,16 +21,28 @@
   args:
     creates: "{{ home }}/.cargo/bin/cargo"
 
-- name: Update Rust
+- name: Check for Rust toolchain updates
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.cargo/bin/rustup"
+      - check
+  register: rustup_update_check
+  changed_when: false
   when: cargo_binary.stat.exists
+
+- name: Update Rust toolchains
   ansible.builtin.command:
     argv:
       - "{{ home }}/.cargo/bin/rustup"
       - update
+  when:
+    - cargo_binary.stat.exists
+    - "'Update available' in rustup_update_check.stdout"
 
 - name: Install cargo-update
   community.general.cargo:
     name: cargo-update
+  register: cargo_update_install
   environment:
     PATH: "{{ home }}/.cargo/bin:{{ ansible_facts['env']['PATH'] }}"
-  ignore_errors: true
+  failed_when: false

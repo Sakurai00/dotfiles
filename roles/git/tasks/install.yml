@@ -1,6 +1,6 @@
 ---
 - name: Install git (Linux)
-  become: yes
+  become: true
   ansible.builtin.package:
     name: git
     state: present
@@ -18,12 +18,12 @@
       - "{{ home }}/.local/bin/mise"
       - where
       - ghq
-  register: ghq_installation
+  register: ghq_exists
   changed_when: false
   failed_when: false
 
 - name: Install ghq via mise
-  when: ghq_installation.rc != 0
+  when: ghq_exists.rc != 0
   ansible.builtin.command:
     argv:
       - "{{ home }}/.local/bin/mise"
