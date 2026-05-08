@@ -62,9 +62,9 @@
         - install
         - link
 
-    - role: C
+    - role: c
       tags:
-        - C
+        - c
         - extra
 
     - role: rust
