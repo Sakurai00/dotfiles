@@ -3,6 +3,8 @@
 - name: Install cargo packages
   community.general.cargo:
     name: "{{ item }}"
+  environment:
+    PATH: "{{ home }}/.cargo/bin:{{ ansible_facts['env']['PATH'] }}"
   loop:
     - eza
     - git-delta
