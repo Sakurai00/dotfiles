@@ -12,20 +12,7 @@
     state: latest
   when: ansible_facts['system'] == 'Darwin'
 
-- name: Check if ghq is installed via mise
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - where
-      - ghq
-  register: ghq_exists
-  changed_when: false
-  failed_when: false
-
-- name: Install ghq via mise
-  when: ghq_exists.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - install
-      - ghq
+- name: Install ghq via shared mise helper
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_mise_tool.yml"
+  vars:
+    _mise_tool_spec: ghq

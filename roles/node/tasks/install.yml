@@ -1,37 +1,10 @@
 ---
+- name: Install node via shared mise helper
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_mise_tool.yml"
+  vars:
+    _mise_tool_spec: "node@{{ node_version }}"
 
-- name: Check if node {{ node_version }} is installed
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - where
-      - "node@{{ node_version }}"
-  register: node_exists
-  changed_when: false
-  failed_when: false
-
-- name: Install node {{ node_version }} via mise
-  when: node_exists.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - install
-      - "node@{{ node_version }}"
-
-- name: Check if pnpm {{ pnpm_version }} is installed
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - where
-      - "pnpm@{{ pnpm_version }}"
-  register: pnpm_exists
-  changed_when: false
-  failed_when: false
-
-- name: Install pnpm {{ pnpm_version }} via mise
-  when: pnpm_exists.rc != 0
-  ansible.builtin.command:
-    argv:
-      - "{{ home }}/.local/bin/mise"
-      - install
-      - "pnpm@{{ pnpm_version }}"
+- name: Install pnpm via shared mise helper
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_mise_tool.yml"
+  vars:
+    _mise_tool_spec: "pnpm@{{ pnpm_version }}"
