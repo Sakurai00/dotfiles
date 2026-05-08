@@ -1,0 +1,21 @@
+---
+# Required:
+# - _mise_tool_spec: tool spec passed to `mise where/install` (e.g. "go@latest")
+
+- name: Check if {{ _mise_tool_spec }} is installed via mise
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - where
+      - "{{ _mise_tool_spec }}"
+  register: _mise_tool_exists
+  changed_when: false
+  failed_when: false
+
+- name: Install {{ _mise_tool_spec }} via mise
+  when: _mise_tool_exists.rc != 0
+  ansible.builtin.command:
+    argv:
+      - "{{ home }}/.local/bin/mise"
+      - install
+      - "{{ _mise_tool_spec }}"
