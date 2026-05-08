@@ -1,18 +1,3 @@
----
-
-- name: Upgrade packages (Linux)
-  become: true
-  ansible.builtin.package:
-    name: '*'
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Upgrade packages (macOS)
-  community.general.homebrew:
-    update_homebrew: true
-    upgrade_all: true
-  when: ansible_facts['system'] == 'Darwin'
-
 - name: Install common packages (Linux)
   become: true
   ansible.builtin.package:
