@@ -1,7 +1,7 @@
 ---
 - name: Link git files
-  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/link_filetree.yml"
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/apply_filetree.yml"
   vars:
-    _root: "{{ role_path }}/files/"
+    _filetree: fileLink
     _link_force_overrides:
       .gitconfig.local: false

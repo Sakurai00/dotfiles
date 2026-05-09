@@ -1,0 +1,53 @@
+---
+# Required:
+# - _filetree: filetree operation (supported: fileLink, fileCopy, templateRender)
+# Optional:
+# - _link_force: force symlink overwrite (default true)
+# - _link_force_overrides: per-path force overrides
+
+- name: Resolve filetree root
+  ansible.builtin.set_fact:
+    _filetree_root: "{{ role_path }}/{{ 'templates/' if _filetree == 'templateRender' else 'files/' }}"
+
+- name: Collect filetree entries
+  ansible.builtin.set_fact:
+    _entries: "{{ lookup('community.general.filetree', _filetree_root, wantlist=True) }}"
+
+- name: Ensure filetree dirs
+  ansible.builtin.file:
+    path: "{{ home }}/{{ item.path }}"
+    state: directory
+    mode: "0755"
+  loop: "{{ _entries }}"
+  when: item.state == 'directory'
+
+- name: Link filetree files
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ home }}/{{ item.path }}"
+    state: link
+    force: "{{ _link_force_overrides[item.path] | default(_link_force | default(true)) }}"
+  loop: "{{ _entries }}"
+  when:
+    - item.state == 'file'
+    - _filetree == 'fileLink'
+
+- name: Copy filetree files
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ home }}/{{ item.path }}"
+    mode: "0644"
+  loop: "{{ _entries }}"
+  when:
+    - item.state == 'file'
+    - _filetree == 'fileCopy'
+
+- name: Render filetree files
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ home }}/{{ item.path | regex_replace('\\.j2$', '') }}"
+    mode: "0644"
+  loop: "{{ _entries }}"
+  when:
+    - item.state == 'file'
+    - _filetree == 'templateRender'
