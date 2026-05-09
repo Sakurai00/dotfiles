@@ -4,3 +4,4 @@ cli_tools_cargo_packages:
   - git-delta
   - bat
   - ripgrep
+  - fd-find

@@ -6,13 +6,16 @@ c_package_manager_packages:
     - clang
     - lldb
     - cmake
+    - pkg-config
   dnf:
     - '@Development tools'
     - gdb
     - clang
     - lldb
     - cmake
+    - pkgconf-pkg-config
   homebrew:
     - gdb
     - llvm
     - cmake
+    - pkg-config
