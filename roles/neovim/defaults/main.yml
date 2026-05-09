@@ -1,0 +1,8 @@
+---
+neovim_package_manager_packages:
+  apt:
+    - neovim
+  dnf:
+    - neovim
+  homebrew:
+    - neovim

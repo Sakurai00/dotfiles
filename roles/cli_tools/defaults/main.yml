@@ -1,0 +1,7 @@
+---
+cli_tools_cargo_packages:
+  - eza
+  - git-delta
+  - bat
+  - ripgrep
+  - fd-find

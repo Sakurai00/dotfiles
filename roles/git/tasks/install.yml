@@ -1,16 +1,8 @@
 ---
-- name: Install git (Linux)
-  become: true
-  ansible.builtin.package:
-    name: git
-    state: present
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install git (macOS)
-  community.general.homebrew:
-    name: git
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install git packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ git_package_manager_packages }}"
 
 - name: Install ghq via shared mise helper
   ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_mise_tool.yml"

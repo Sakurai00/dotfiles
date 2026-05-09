@@ -1,0 +1,16 @@
+---
+common_package_manager_packages:
+  apt:
+    - curl
+    - wget
+    - snapd
+    - libssl-dev
+  dnf:
+    - curl
+    - wget
+    - snapd
+    - openssl-devel
+  homebrew:
+    - curl
+    - wget
+    - openssl

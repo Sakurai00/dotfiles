@@ -1,14 +1,6 @@
 ---
 
-- name: Install zsh (Linux)
-  become: true
-  ansible.builtin.package:
-    name: zsh
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install zsh (macOS)
-  community.general.homebrew:
-    name: zsh
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install zsh packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ zsh_package_manager_packages }}"

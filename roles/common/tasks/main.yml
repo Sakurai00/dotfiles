@@ -1,21 +1,4 @@
-- name: Install common packages (Linux)
-  become: true
-  ansible.builtin.package:
-    name:
-      - curl
-      - wget
-      - git
-      - snapd
-      - "{{ 'libssl-dev' if ansible_pkg_mgr == 'apt' else 'openssl-devel' }}"
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install common packages (macOS)
-  community.general.homebrew:
-    name:
-      - curl
-      - wget
-      - git
-      - openssl
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install common packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ common_package_manager_packages }}"
