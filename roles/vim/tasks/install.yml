@@ -1,14 +1,6 @@
 ---
 
-- name: Install vim (Linux)
-  become: true
-  ansible.builtin.package:
-    name: vim
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install vim (macOS)
-  community.general.homebrew:
-    name: vim
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install vim packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ vim_package_manager_packages }}"

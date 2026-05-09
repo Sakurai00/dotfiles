@@ -5,8 +5,4 @@
     name: "{{ item }}"
   environment:
     PATH: "{{ home }}/.cargo/bin:{{ ansible_facts['env']['PATH'] }}"
-  loop:
-    - eza
-    - git-delta
-    - bat
-    - ripgrep
+  loop: "{{ cli_tools_cargo_packages }}"

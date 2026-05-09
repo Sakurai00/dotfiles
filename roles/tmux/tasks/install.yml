@@ -1,17 +1,9 @@
 ---
 
-- name: Install tmux (Linux)
-  become: true
-  ansible.builtin.package:
-    name: tmux
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install tmux (macOS)
-  community.general.homebrew:
-    name: tmux
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install tmux packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ tmux_package_manager_packages }}"
 
 - name: Clone tpm
   ansible.builtin.git:

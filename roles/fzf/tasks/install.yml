@@ -28,8 +28,8 @@
     - ansible_facts['system'] == 'Linux'
     - fzf_repo.changed or not fzf_binary.stat.exists
 
-- name: Install fzf (macOS)
-  community.general.homebrew:
-    name: fzf
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install fzf package (macOS)
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages:
+      homebrew: "{{ fzf_darwin_packages }}"

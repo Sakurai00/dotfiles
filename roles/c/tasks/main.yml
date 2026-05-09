@@ -1,22 +1,6 @@
 ---
 
-- name: Install C/C++ packages (Linux)
-  become: true
-  ansible.builtin.package:
-    name:
-      - "{{ 'build-essential' if ansible_pkg_mgr == 'apt' else '@Development tools' }}"
-      - gdb
-      - clang
-      - lldb
-      - cmake
-    state: latest
-  when: ansible_facts['system'] == 'Linux'
-
-- name: Install C/C++ packages (macOS)
-  community.general.homebrew:
-    name:
-      - gdb
-      - llvm
-      - cmake
-    state: latest
-  when: ansible_facts['system'] == 'Darwin'
+- name: Install C/C++ packages
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_os_packages.yml"
+  vars:
+    _package_manager_packages: "{{ c_package_manager_packages }}"

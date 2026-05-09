@@ -1,0 +1,15 @@
+---
+docker_apt_dependency_packages:
+  - ca-certificates
+  - curl
+  - gnupg
+
+docker_dnf_dependency_packages:
+  - dnf-plugins-core
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin

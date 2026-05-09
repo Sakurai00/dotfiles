@@ -2,10 +2,7 @@
 - name: Install dependencies for Docker (apt)
   become: true
   ansible.builtin.apt:
-    name:
-      - ca-certificates
-      - curl
-      - gnupg
+    name: "{{ docker_apt_dependency_packages }}"
     state: present
   when: ansible_pkg_mgr == 'apt'
 
@@ -26,7 +23,7 @@
 - name: Install dnf-plugins-core (dnf)
   become: true
   ansible.builtin.dnf:
-    name: dnf-plugins-core
+    name: "{{ docker_dnf_dependency_packages }}"
     state: present
   when: ansible_pkg_mgr == 'dnf'
 
@@ -44,12 +41,7 @@
 - name: Install Docker components
   become: true
   ansible.builtin.package:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
+    name: "{{ docker_packages }}"
     state: present
     update_cache: true
 

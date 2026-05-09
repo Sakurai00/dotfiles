@@ -1,0 +1,29 @@
+---
+# Required:
+# - _package_manager_packages: package lists keyed by package manager
+# Optional:
+# - _package_state: package state (default "latest")
+
+- name: Resolve package manager package list
+  ansible.builtin.set_fact:
+    _selected_package_manager: "{{ 'homebrew' if ansible_facts['system'] == 'Darwin' else ansible_pkg_mgr }}"
+    _selected_packages: >-
+      {{ _package_manager_packages['homebrew'] if ansible_facts['system'] == 'Darwin'
+         else _package_manager_packages[ansible_pkg_mgr] | default([]) }}
+
+- name: Install packages (Linux)
+  become: true
+  ansible.builtin.package:
+    name: "{{ _selected_packages }}"
+    state: "{{ _package_state | default('latest') }}"
+  when:
+    - ansible_facts['system'] == 'Linux'
+    - (_selected_packages | length) > 0
+
+- name: Install packages (macOS)
+  community.general.homebrew:
+    name: "{{ _selected_packages }}"
+    state: "{{ _package_state | default('latest') }}"
+  when:
+    - ansible_facts['system'] == 'Darwin'
+    - (_selected_packages | length) > 0

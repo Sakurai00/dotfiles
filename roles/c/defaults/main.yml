@@ -1,0 +1,18 @@
+---
+c_package_manager_packages:
+  apt:
+    - build-essential
+    - gdb
+    - clang
+    - lldb
+    - cmake
+  dnf:
+    - '@Development tools'
+    - gdb
+    - clang
+    - lldb
+    - cmake
+  homebrew:
+    - gdb
+    - llvm
+    - cmake
