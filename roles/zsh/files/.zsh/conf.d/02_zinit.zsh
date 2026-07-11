@@ -17,10 +17,6 @@ autoload -Uz _zinit
 
 
 # ====== Load Zinit plugins ======
-# Prompt (Immediate)
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-
 # Turbo Mode plugins (Delayed loading after prompt)
 zinit wait'0' lucid for \
     zdharma-continuum/fast-syntax-highlighting
