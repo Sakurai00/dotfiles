@@ -102,3 +102,10 @@
         - extra
         - install
         - link
+
+    - role: just
+      tags:
+        - just
+        - extra
+        - install
+        - link

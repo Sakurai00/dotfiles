@@ -1,0 +1,5 @@
+---
+- name: Render just files
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/apply_filetree.yml"
+  vars:
+    _filetree: templateRender
