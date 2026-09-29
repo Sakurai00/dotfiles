@@ -1,0 +1,5 @@
+---
+- name: Install just via shared mise helper
+  ansible.builtin.import_tasks: "{{ playbook_dir }}/roles/shared/tasks/install_mise_tool.yml"
+  vars:
+    _mise_tool_spec: "just@{{ just_version }}"

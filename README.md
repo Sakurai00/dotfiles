@@ -18,6 +18,10 @@ chsh -s $(which zsh)
     - Prompt: Powerlevel10k
   - Fuzzy finder: fzf
 
+- Task runner
+  - just
+    - Managed by: mise
+
 - Multiplexer
   - tmux
     - tmux plugin manager: TPM
