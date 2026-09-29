@@ -1,0 +1,44 @@
+---
+- name: Check installed Codex CLI version
+  ansible.builtin.command:
+    argv:
+      - "{{ codex_install_dir }}/codex"
+      - --version
+  register: _codex_version_before
+  changed_when: false
+  failed_when: false
+
+- name: Create Codex installer cache directory
+  ansible.builtin.file:
+    path: "{{ codex_installer_script | dirname }}"
+    state: directory
+    mode: "0755"
+
+- name: Download Codex CLI installer
+  ansible.builtin.get_url:
+    url: "{{ codex_installer_url }}"
+    dest: "{{ codex_installer_script }}"
+    mode: "0700"
+  changed_when: false
+
+- name: Run Codex CLI installer
+  ansible.builtin.command:
+    argv:
+      - sh
+      - "{{ codex_installer_script }}"
+  environment:
+    CODEX_INSTALL_DIR: "{{ codex_install_dir }}"
+    CODEX_NON_INTERACTIVE: "1"
+    PATH: "{{ codex_install_dir }}:{{ ansible_facts['env']['PATH'] }}"
+  register: _codex_install_result
+  changed_when: false
+
+- name: Verify Codex CLI installation
+  ansible.builtin.command:
+    argv:
+      - "{{ codex_install_dir }}/codex"
+      - --version
+  register: _codex_version_after
+  changed_when: >-
+    _codex_version_before.rc != 0 or
+    _codex_version_before.stdout != _codex_version_after.stdout

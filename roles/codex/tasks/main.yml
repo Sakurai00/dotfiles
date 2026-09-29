@@ -1,0 +1,5 @@
+---
+- name: codex | install
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - install

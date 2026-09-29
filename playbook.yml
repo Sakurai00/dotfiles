@@ -109,3 +109,9 @@
         - extra
         - install
         - link
+
+    - role: codex
+      tags:
+        - codex
+        - extra
+        - install
