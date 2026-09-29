@@ -1,0 +1,4 @@
+---
+codex_install_dir: "{{ home }}/.local/bin"
+codex_installer_url: https://chatgpt.com/codex/install.sh
+codex_installer_script: "{{ home }}/.cache/codex/install.sh"

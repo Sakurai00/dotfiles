@@ -30,6 +30,9 @@ chsh -s $(which zsh)
   - Neovim
   - Vim
 
+- AI assistants
+  - Codex CLI
+
 - Languages
   - C/C++
   - Python
